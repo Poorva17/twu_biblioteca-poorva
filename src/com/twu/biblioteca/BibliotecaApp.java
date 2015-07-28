@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class BibliotecaApp {
     View view;
-    ListOfBooks bookList;
+    Library bookList;
 
-    public BibliotecaApp(View view, ListOfBooks bookList) {
+    public BibliotecaApp(View view, Library bookList) {
         this.view = view;
         this.bookList = bookList;
     }
@@ -15,11 +15,14 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         View view = new View();
         view.printWelcomeMessage();
-        ArrayList<Book> bookList = new ArrayList<Book>();
-        ListOfBooks listOfBooks = new ListOfBooks(bookList);
+        ArrayList<String> book = new ArrayList<String>();
+        book.add("Harry Potter");
+        book.add("Head First Java");
 
-        listOfBooks.addBooks();
-        listOfBooks.showList();
+        Library listOfBooks = new Library(book);
+
+        view.printListOfBooks(listOfBooks.showList());
     }
 }
+
 
