@@ -1,0 +1,26 @@
+DESCRIPTION
+===========
+
+Library management system.
+
+SETUP
+=====
+
+[1]. Java 1.7.0
+[2]. IntelliJ Idea
+[3]. Apache ANT 1.9.5
+[4]. Junit 4.8.2
+
+How to build
+=============
+
+To build application need to have build.xml
+To create jar
+$ ant build-jar
+
+
+How to run
+==========
+
+To run the test from IntelliJ Idea press shift+alt+F10
+to run from command line $ ant run
