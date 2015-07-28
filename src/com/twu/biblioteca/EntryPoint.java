@@ -26,6 +26,9 @@ public class EntryPoint {
                     case 1:
                         bibliotecaApp.showList();
                         break;
+                    case 2:
+                        System.exit(0);
+                        break;
                     default:
                         view.printMessage("Select valid option!");
 

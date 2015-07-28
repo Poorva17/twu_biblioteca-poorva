@@ -36,5 +36,6 @@ public class BibliotecaAppTest {
 
         Mockito.verify(view).printMessage("Menu");
         Mockito.verify(view).printMessage("1.List Of Books");
+        Mockito.verify(view).printMessage("2.Quit");
     }
 }
