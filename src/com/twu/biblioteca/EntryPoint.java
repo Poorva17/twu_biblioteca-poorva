@@ -16,12 +16,19 @@ public class EntryPoint {
         view.printMessage("Enter your choice:");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
-            int ch =Integer.parseInt(br.readLine());
-            switch (ch)
-            {
-                case 1: bibliotecaApp.showList();
+            int ch;
+            do {
+                ch = Integer.parseInt(br.readLine());
+                switch (ch)
+                {
+                    case 1:
+                        bibliotecaApp.showList();
                         break;
-            }
+                    default:
+                        view.printMessage("Select valid option!");
+                        view.printMessage("Enter your choice:");
+                }
+            } while (ch != 1);
         } catch (IOException e) {
             e.printStackTrace();
         }
