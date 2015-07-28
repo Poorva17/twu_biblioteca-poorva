@@ -11,15 +11,17 @@ import static org.junit.Assert.assertEquals;
 
 public class ViewTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream original;
 
     @Before
     public void setUpStreams() {
         System.setOut(new PrintStream(outputStream));
+
     }
 
     @After
     public void cleanUpStreams() {
-        System.setOut(null);
+        System.setOut(original);
     }
 
     @Test
