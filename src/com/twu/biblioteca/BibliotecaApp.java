@@ -36,5 +36,10 @@ public class BibliotecaApp {
     public void showList() {
         view.printListOfBooks(this.bookList);
     }
+
+    public void showMenu() {
+        view.printMessage("Menu");
+        view.printMessage("1.List Of Books");
+    }
 }
 

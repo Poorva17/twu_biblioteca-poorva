@@ -26,5 +26,15 @@ public class BibliotecaAppTest {
 
         Mockito.verify(view).printListOfBooks(bookList);
     }
-}
 
+    @Test
+    public void shouldPrintMenu() {
+        View view = Mockito.mock(View.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
+        bibliotecaApp.createBookList();
+        bibliotecaApp.showMenu();
+
+        Mockito.verify(view).printMessage("Menu");
+        Mockito.verify(view).printMessage("1.List Of Books");
+    }
+}
