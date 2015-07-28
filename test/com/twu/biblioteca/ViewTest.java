@@ -17,7 +17,7 @@ public class ViewTest {
     @Before
     public void setUpStreams() {
         System.setOut(new PrintStream(outputStream));
-
+        original = System.out;
     }
 
     @After
@@ -36,18 +36,23 @@ public class ViewTest {
 
     @Test
     public void shouldPrintListOfBooks() {
+
+        ArrayList<String[]> actualBookList = new ArrayList<String[]>();
+        String[] book1 = new String[3];
+        String[] book2 = new String[3];
+        book1[0] = "Harry Potter";
+        book1[1] = "J K Rolling";
+        book1[2] = "1994";
+        book2[0] = "Head First Java";
+        book2[1] = "Sierra";
+        book2[2] = "2008";
+        actualBookList.add(book1);
+        actualBookList.add(book2);
         View view = new View();
-        ArrayList<String> expectedBookList = new ArrayList<String>();
-        String book1 = new String("Harry Potter");
-        String book2 = new String("Head First Java");
-        expectedBookList.add(book1);
-        expectedBookList.add(book2);
-        Library library = new Library(expectedBookList);
-        ArrayList<String> actualBookList = library.showList();
 
         view.printListOfBooks(actualBookList);
 
-        assertEquals("Harry Potter\nHead First Java\n", outputStream.toString());
+        assertEquals("Harry Potter\tJ K Rolling\t1994\nHead First Java\tSierra\t2008\n", outputStream.toString());
     }
 }
 
