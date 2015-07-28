@@ -2,8 +2,15 @@ package com.twu.biblioteca;
 
 
 public class BibliotecaApp {
+    View view = new View();
+
+    public BibliotecaApp(View view) {
+        this.view = view;
+    }
 
     public static void main(String[] args) {
-        System.out.println("Hello, world!");
+        View view = new View();
+        view.printWelcomeMessage();
     }
 }
+
