@@ -6,6 +6,7 @@
         <javac destdir="out">
             <src path="src;test"/>
             <classpath location="lib/junit-4.8.2.jar"/>
+            <classpath location="lib/mockito-all-1.9.5.jar"/>
         </javac>
     </target>
 
@@ -18,13 +19,18 @@
         <jar destfile="lib/Biblioteca.jar"
              basedir="out"
              excludes="**/Test.class">
+            <manifest>
+                <attribute name="Main-Class" value="com.twu.biblioteca.EntryPoint"/>
+            </manifest>
+
         </jar>
     </target>
 
     <target name="run" depends="build-jar">
-        <java fork="true" failonerror="yes" classname="com.twu.biblioteca.BibliotecaApp">
+        <java fork="true" failonerror="yes" classname="com.twu.biblioteca.EntryPoint">
             <classpath>
                 <path location="lib/Biblioteca.jar"/>
+                <path location="lib/mockito-all-1.9.5.jar"/>
             </classpath>
         </java>
     </target>
@@ -33,6 +39,7 @@
         <junit printsummary="yes" haltonfailure="true">
             <classpath>
                 <pathelement location="lib/junit-4.8.2.jar"/>
+                <pathelement location="lib/mockito-all-1.9.5.jar"/>
                 <pathelement location="out"/>
             </classpath>
 

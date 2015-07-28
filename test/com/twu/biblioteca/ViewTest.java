@@ -1,13 +1,14 @@
 package com.twu.biblioteca;
 
+
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-
-import static org.junit.Assert.assertEquals;
 
 
 public class ViewTest {
@@ -28,10 +29,10 @@ public class ViewTest {
     @Test
     public void shouldPrintCorrectWelcomeMessage() {
         View view = new View();
+        String welcomeMessage = "Welcome to Biblioteca";
+        view.printMessage(welcomeMessage);
 
-        view.printWelcomeMessage();
-
-        assertEquals("Welcome to Biblioteca!!!\n", outputStream.toString());
+        Assert.assertEquals("Welcome to Biblioteca\n", outputStream.toString());
     }
 
     @Test
@@ -52,9 +53,10 @@ public class ViewTest {
 
         view.printListOfBooks(actualBookList);
 
-        assertEquals("Harry Potter\tJ K Rolling\t1994\nHead First Java\tSierra\t2008\n", outputStream.toString());
+        Assert.assertEquals("Harry Potter\tJ K Rolling\t1994\nHead First Java\tSierra\t2008\n", outputStream.toString());
     }
 }
+
 
 
 

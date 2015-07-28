@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class View {
 
-    public void printWelcomeMessage() {
-        System.out.println("Welcome to Biblioteca!!!");
+    public void printMessage(String message) {
+        System.out.println(message);
     }
 
     public void printListOfBooks(ArrayList<String[]> bookList) {
@@ -14,6 +14,7 @@ public class View {
         }
     }
 }
+
 
 
 

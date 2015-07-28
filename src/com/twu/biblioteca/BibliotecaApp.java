@@ -1,33 +1,40 @@
 package com.twu.biblioteca;
 
-
 import java.util.ArrayList;
+
 
 public class BibliotecaApp {
     View view;
-    ArrayList<String> bookList;
+    ArrayList<String[]> bookList;
 
-    public BibliotecaApp(View view, ArrayList<String> bookList) {
+    public BibliotecaApp(View view) {
         this.view = view;
-        this.bookList = bookList;
+        this.bookList = null;
     }
 
-    public static void main(String[] args) {
-        View view = new View();
+    public ArrayList<String[]> createBookList() {
+        ArrayList<String[]> actualBookList = new ArrayList<String[]>();
         String[] book1 = new String[3];
         String[] book2 = new String[3];
         book1[0] = "Harry Potter";
-        book1[1] = "ABC";
+        book1[1] = "J K Rolling";
         book1[2] = "1994";
-        book2[0] = "XYZ";
-        book2[1] = "XYZA";
-        book2[2] = "1995";
-        ArrayList<String[]> library = new ArrayList<String[]>();
-        library.add(book1);
-        library.add(book2);
-        view.printWelcomeMessage();
-        view.printListOfBooks(library);
+        book2[0] = "Head First Java";
+        book2[1] = "Sierra";
+        book2[2] = "2008";
+        actualBookList.add(book1);
+        actualBookList.add(book2);
+
+        this.bookList = actualBookList;
+        return actualBookList;
+    }
+
+    public void printWelcomeMessage() {
+        String welcomeMessage = "Welcome to Biblioteca";
+        view.printMessage(welcomeMessage);
+    }
+    public void showList() {
+        view.printListOfBooks(this.bookList);
     }
 }
-
 
