@@ -40,14 +40,13 @@ public class ViewTest {
         ArrayList<String> expectedBookList = new ArrayList<String>();
         String book1 = new String("Harry Potter");
         String book2 = new String("Head First Java");
-
         expectedBookList.add(book1);
         expectedBookList.add(book2);
-
         Library library = new Library(expectedBookList);
         ArrayList<String> actualBookList = library.showList();
 
         view.printListOfBooks(actualBookList);
+
         assertEquals("Harry Potter\nHead First Java\n", outputStream.toString());
     }
 }
