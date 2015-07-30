@@ -13,7 +13,7 @@ public class Setup {
     }
 
     public void showMenu() {
-        view.printMessage("Menu");
+        view.printMessage("Menu\n-----------------------------");
         view.printMessage("1.List Of Books");
         view.printMessage("2.Checkout Book");
         view.printMessage("3.Return Book");

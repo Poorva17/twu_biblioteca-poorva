@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+
 public class SetupTest {
 
     @Test
@@ -22,7 +23,7 @@ public class SetupTest {
 
         setup.showMenu();
 
-        Mockito.verify(view).printMessage("Menu");
+        Mockito.verify(view).printMessage("Menu\n-----------------------------");
         Mockito.verify(view).printMessage("1.List Of Books");
         Mockito.verify(view).printMessage("2.Checkout Book");
         Mockito.verify(view).printMessage("3.Return Book");

@@ -17,4 +17,15 @@ public class BookTest {
 
         assertEquals(true, book.ckeckout());
     }
+
+    @Test
+    public void shouldReturnValidBook() {
+        String name = "Computer Networks";
+        String author = "Taneunbaum";
+        String year = "2008";
+        boolean isAvailable = false;
+        Book book = new Book(name, author, year, isAvailable);
+
+        assertEquals(true, book.ckeckin());
+    }
 }
