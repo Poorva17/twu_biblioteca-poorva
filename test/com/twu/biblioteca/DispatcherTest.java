@@ -23,9 +23,9 @@ public class DispatcherTest {
         book2.put("Year Published", "2002");
         bookList.add(book1);
         bookList.add(book2);
-        Dispatcher dispatcher = new Dispatcher(choice, view, bookList);
+        Dispatcher dispatcher = new Dispatcher(view, bookList);
 
-        dispatcher.dispatch();
+        dispatcher.dispatch(choice);
 
         Mockito.verify(view).printListOfBooks(bookList);
     }

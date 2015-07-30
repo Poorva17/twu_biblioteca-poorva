@@ -1,24 +1,25 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-
 public class BibliotecaApp {
     View view;
-    ArrayList<HashMap<String, String>> bookList;
+    Setup setup;
+    Input input;
+    Dispatcher dispatcher;
 
-    public BibliotecaApp(View view, ArrayList<HashMap<String, String>> bookList) {
+    public BibliotecaApp(View view, Setup setup, Input input, Dispatcher dispatcher) {
         this.view = view;
-        this.bookList = bookList;
-    }
-
-    public ArrayList<HashMap<String, String>> getGetBookList() {
-        return this.bookList;
+        this.setup = setup;
+        this.input = input;
+        this.dispatcher = dispatcher;
     }
 
     public void start() {
-        view.printListOfBooks(bookList);
+        setup.showWelcomeMessage();
+        setup.showMenu();
+        while(true) {
+            dispatcher.dispatch(input.acceptInput());
+            setup.showMenu();
+        }
     }
 }
 
