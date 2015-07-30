@@ -41,4 +41,8 @@ public class Book {
         }
         return false;
     }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
 }

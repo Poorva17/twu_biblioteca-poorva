@@ -19,7 +19,7 @@ public class Input {
             view.printMessage("Enter your choice:");
             this.choice = Integer.parseInt(br.readLine());
         } catch (Exception e) {
-            System.out.print("Error!!!");
+            view.printMessage("Error!!!");
         }
         return this.choice;
     }
@@ -32,7 +32,7 @@ public class Input {
             bookName = br.readLine();
             return bookName;
         } catch (Exception e) {
-            System.out.print("Error!!!");
+            view.printMessage("Error!!!");
         }
         return bookName;
     }

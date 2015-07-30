@@ -20,7 +20,13 @@ public class Library {
     }
 
     public ArrayList<Book> getBooklist() {
-        return bookList;
+        ArrayList<Book> availableBookList = new ArrayList<Book>();
+        for (Book book : this.bookList) {
+            if(book.isAvailable()) {
+                availableBookList.add(book);
+            }
+        }
+        return availableBookList;
     }
 
     public boolean checkin(String bookNameToCheckin) {
