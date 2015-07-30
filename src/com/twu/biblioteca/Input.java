@@ -23,5 +23,4 @@ public class Input {
         }
         return this.choice;
     }
-
 }

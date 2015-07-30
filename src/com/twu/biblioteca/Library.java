@@ -2,32 +2,20 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class Library {
-    private ArrayList<String> bookList;
 
-    public Library(ArrayList<String> bookList) {
+public class Library {
+    private ArrayList<Book> bookList;
+
+    public Library(ArrayList<Book> bookList) {
         this.bookList = bookList;
     }
 
-    public ArrayList<String> showList() {
-        return bookList;
-    }
-    
-    @Override
-    public boolean equals(Object other) {
-        if (this == other)
-            return true;
-        if (other == null || getClass() != other.getClass())
-            return false;
-
-        Library that = (Library) other;
-
-        return !(bookList != null ? !bookList.equals(that.bookList) : that.bookList != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        return bookList != null ? bookList.hashCode() : 0;
+    public boolean checkout(String bookNameToCheckout) {
+        for (Book book : bookList) {
+            if (book.getTitle().equals(bookNameToCheckout)) {
+                return book.ckeckout();
+            }
+        }
+        return false;
     }
 }
