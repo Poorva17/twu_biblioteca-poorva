@@ -1,14 +1,10 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-
 public class Dispatcher {
     private View view;
-    private ArrayList<HashMap<String,String>> bookList;
+    private Library bookList;
 
-    public Dispatcher(View view, ArrayList<HashMap<String, String>> bookList) {
+    public Dispatcher(View view, Library bookList) {
         this.view = view;
         this.bookList = bookList;
     }

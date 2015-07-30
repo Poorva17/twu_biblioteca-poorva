@@ -7,7 +7,6 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class ViewTest {
@@ -37,22 +36,14 @@ public class ViewTest {
     @Test
     public void shouldPrintListOfBooks() {
 
-        ArrayList<HashMap<String, String>> bookList = new ArrayList<HashMap<String, String>>();
-        HashMap<String, String> book1 = new HashMap<String, String>();
-        book1.put("Name Of Book", "Computer Networks");
-        book1.put("Author", "Taneunbaum");
-        book1.put("Year Published", "2008");
-
-        HashMap<String, String> book2 = new HashMap<String, String>();
-        book2.put("Name Of Book", "Data Structures");
-        book2.put("Author", "Forouzan");
-        book2.put("Year Published", "2002");
-
+        View view = new View();
+        Book book1 = new Book("Computer Networks", "Taneunbaum", "2008", true);
+        Book book2 = new Book("Data Structures", "Forouzan", "2002", true);
+        ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(book1);
         bookList.add(book2);
-        View view = new View();
-
-        view.printListOfBooks(bookList);
+        Library library = new Library(bookList);
+        view.printListOfBooks(library);
 
         Assert.assertEquals("Computer Networks\tTaneunbaum\t2008\nData Structures\tForouzan\t2002\n", outputStream.toString());
     }

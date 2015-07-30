@@ -11,19 +11,14 @@ public class EntryPoint {
         Setup setup = new Setup(view);
         int choice = 0;
         Input input = new Input(choice, view);
-        ArrayList<HashMap<String, String>> preexistingBookList = new ArrayList<HashMap<String, String>>();
-        HashMap<String, String> book1 = new HashMap<String, String>();
-        book1.put("Name Of Book", "Computer Networks");
-        book1.put("Author", "Taneunbaum");
-        book1.put("Year Published", "2008");
-        HashMap<String, String> book2 = new HashMap<String, String>();
-        book2.put("Name Of Book", "Data Structures");
-        book2.put("Author", "Forouzan");
-        book2.put("Year Published", "2002");
-        preexistingBookList.add(book1);
-        preexistingBookList.add(book2);
+        Book book1 = new Book("Computer Networks", "Taneunbaum", "2008", true);
+        Book book2 = new Book("Data Structures", "Forouzan", "2002", true);
+        ArrayList<Book> bookList = new ArrayList<Book>();
+        bookList.add(book1);
+        bookList.add(book2);
 
-        Dispatcher dispatcher = new Dispatcher(view, preexistingBookList);
+        Library library = new Library(bookList);
+        Dispatcher dispatcher = new Dispatcher(view, library);
         BibliotecaApp bibliotecaapp = new BibliotecaApp(view, setup, input, dispatcher);
         bibliotecaapp.start();
     }
