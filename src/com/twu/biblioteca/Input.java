@@ -23,4 +23,17 @@ public class Input {
         }
         return this.choice;
     }
+
+    public String acceptBookName() {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String bookName = "";
+        try {
+            view.printMessage("Enter book name:");
+            bookName = br.readLine();
+            return bookName;
+        } catch (Exception e) {
+            System.out.print("Error!!!");
+        }
+        return bookName;
+    }
 }

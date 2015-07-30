@@ -18,7 +18,7 @@ public class EntryPoint {
         bookList.add(book2);
 
         Library library = new Library(bookList);
-        Dispatcher dispatcher = new Dispatcher(view, library);
+        Dispatcher dispatcher = new Dispatcher(view, library, input);
         BibliotecaApp bibliotecaapp = new BibliotecaApp(view, setup, input, dispatcher);
         bibliotecaapp.start();
     }

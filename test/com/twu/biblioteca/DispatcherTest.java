@@ -17,7 +17,8 @@ public class DispatcherTest {
         bookList.add(book1);
         bookList.add(book2);
         Library library = new Library(bookList);
-        Dispatcher dispatcher = new Dispatcher(view, library);
+        Input input = new Input(1, view);
+        Dispatcher dispatcher = new Dispatcher(view, library, input);
 
         dispatcher.dispatch(choice);
 
