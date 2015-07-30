@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class View {
 
@@ -8,9 +9,9 @@ public class View {
         System.out.println(message);
     }
 
-    public void printListOfBooks(ArrayList<String[]> bookList) {
-        for (String[] book : bookList) {
-            System.out.println(book[0] + "\t" + book[1] + "\t" + book[2]);
+    public void printListOfBooks(ArrayList<HashMap<String, String>> bookList) {
+        for (HashMap<String, String> book : bookList) {
+            System.out.println(book.get("Name Of Book")+ "\t" + book.get("Author") + "\t" + book.get("Year Published"));
         }
     }
 }

@@ -1,14 +1,13 @@
 package com.twu.biblioteca;
 
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class ViewTest {
@@ -38,26 +37,23 @@ public class ViewTest {
     @Test
     public void shouldPrintListOfBooks() {
 
-        ArrayList<String[]> actualBookList = new ArrayList<String[]>();
-        String[] book1 = new String[3];
-        String[] book2 = new String[3];
-        book1[0] = "Harry Potter";
-        book1[1] = "J K Rolling";
-        book1[2] = "1994";
-        book2[0] = "Head First Java";
-        book2[1] = "Sierra";
-        book2[2] = "2008";
-        actualBookList.add(book1);
-        actualBookList.add(book2);
+        ArrayList<HashMap<String, String>> bookList = new ArrayList<HashMap<String, String>>();
+        HashMap<String, String> book1 = new HashMap<String, String>();
+        book1.put("Name Of Book", "Computer Networks");
+        book1.put("Author", "Taneunbaum");
+        book1.put("Year Published", "2008");
+
+        HashMap<String, String> book2 = new HashMap<String, String>();
+        book2.put("Name Of Book", "Data Structures");
+        book2.put("Author", "Forouzan");
+        book2.put("Year Published", "2002");
+
+        bookList.add(book1);
+        bookList.add(book2);
         View view = new View();
 
-        view.printListOfBooks(actualBookList);
+        view.printListOfBooks(bookList);
 
-        Assert.assertEquals("Harry Potter\tJ K Rolling\t1994\nHead First Java\tSierra\t2008\n", outputStream.toString());
+        Assert.assertEquals("Computer Networks\tTaneunbaum\t2008\nData Structures\tForouzan\t2002\n", outputStream.toString());
     }
 }
-
-
-
-
-

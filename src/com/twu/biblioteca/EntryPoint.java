@@ -1,45 +1,37 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class EntryPoint {
 
     public static void main(String[] args) {
         View view = new View();
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
-        bibliotecaApp.printWelcomeMessage();
-        bibliotecaApp.createBookList();
-        bibliotecaApp.showMenu();
-        view.printMessage("Enter your choice:");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            int choice;
-            String choiceForMenu;
+        Setup setup = new Setup(view);
+        setup.showWelcomeMessage();
+        setup.showMenu();
+        ArrayList<HashMap<String, String>> preexistingBookList = new ArrayList<HashMap<String, String>>();
+        HashMap<String, String> book1 = new HashMap<String, String>();
+        book1.put("Name Of Book", "Computer Networks");
+        book1.put("Author", "Taneunbaum");
+        book1.put("Year Published", "2008");
 
-            do {
-                choice = Integer.parseInt(br.readLine());
-                switch (choice)
-                {
-                    case 1:
-                        bibliotecaApp.showList();
-                        break;
-                    case 2:
-                        System.exit(0);
-                        break;
-                    default:
-                        view.printMessage("Select valid option!");
+        HashMap<String, String> book2 = new HashMap<String, String>();
+        book2.put("Name Of Book", "Data Structures");
+        book2.put("Author", "Forouzan");
+        book2.put("Year Published", "2002");
 
-                }
-                view.printMessage("Do you want to continue (Y/N):");
-                choiceForMenu = br.readLine();
-                view.printMessage("Enter your choice:");
-            } while (choiceForMenu.equals("Y"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        preexistingBookList.add(book1);
+        preexistingBookList.add(book2);
+
+        BibliotecaApp bibliotecaapp = new BibliotecaApp(view, preexistingBookList);
+        bibliotecaapp.start();
+        int choice = 0;
+        Input input = new Input(choice, view);
+        choice = input.acceptInput();
+        Dispatcher dispatcher = new Dispatcher(choice, view, preexistingBookList);
+        dispatcher.dispatch();
     }
 }
 
