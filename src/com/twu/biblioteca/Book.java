@@ -33,4 +33,12 @@ public class Book {
     public String getYear() {
         return yearPublished;
     }
+
+    public boolean ckeckin() {
+        if(!this.isAvailable) {
+            this.isAvailable = true;
+            return true;
+        }
+        return false;
+    }
 }

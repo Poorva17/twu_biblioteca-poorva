@@ -16,6 +16,7 @@ public class Setup {
         view.printMessage("Menu");
         view.printMessage("1.List Of Books");
         view.printMessage("2.Checkout Book");
-        view.printMessage("3.Quit");
+        view.printMessage("3.Return Book");
+        view.printMessage("4.Quit");
     }
 }

@@ -22,4 +22,13 @@ public class Library {
     public ArrayList<Book> getBooklist() {
         return bookList;
     }
+
+    public boolean checkin(String bookNameToCheckin) {
+        for (Book book : bookList) {
+            if (book.getTitle().equals(bookNameToCheckin)) {
+                return book.ckeckin();
+            }
+        }
+        return false;
+    }
 }

@@ -14,7 +14,7 @@ public class Dispatcher {
     public void dispatch(int choice) {
         switch (choice) {
             case 1:
-                view.printListOfBooks(this.bookList);
+                view.printListOfBooks(bookList);
                 break;
             case 2:
                 if(bookList.checkout(input.acceptBookName())) {
@@ -25,6 +25,15 @@ public class Dispatcher {
                 }
                 break;
             case 3:
+                if(bookList.checkin(input.acceptBookName())) {
+                    view.printMessage("Thank you for returning the book.");
+                }
+                else {
+                    view.printMessage("That is not a valid book to return.");
+                }
+                break;
+
+            case 4:
                 System.exit(0);
                 break;
             default:
