@@ -23,7 +23,7 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnValidBook() {
-        Book book1 = new Book("Computer Networks", "Taneunbaum", "2008", true);
+        Book book1 = new Book("Computer Networks", "Taneunbaum", "2008", false);
         Book book2 = new Book("Data Structures", "Forouzan", "2002", true);
         ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(book1);

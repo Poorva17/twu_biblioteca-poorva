@@ -4,7 +4,7 @@ package com.twu.biblioteca;
 public class View {
 
     public void printMessage(String message) {
-        System.out.println(message);
+        System.out.print(message);
     }
 
     public void printListOfBooks(Library library) {

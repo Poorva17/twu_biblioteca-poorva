@@ -7,9 +7,7 @@ public class EntryPoint {
 
     public static void main(String[] args) {
         View view = new View();
-        Setup setup = new Setup(view);
-        int choice = 0;
-        Input input = new Input(choice, view);
+        Input input = new Input();
         Book book1 = new Book("Computer Networks", "Taneunbaum", "2008", true);
         Book book2 = new Book("Data Structures", "Forouzan", "2002", true);
         ArrayList<Book> bookList = new ArrayList<Book>();
@@ -18,7 +16,7 @@ public class EntryPoint {
 
         Library library = new Library(bookList);
         Dispatcher dispatcher = new Dispatcher(view, library, input);
-        BibliotecaApp bibliotecaapp = new BibliotecaApp(view, setup, input, dispatcher);
+        BibliotecaApp bibliotecaapp = new BibliotecaApp(view, dispatcher);
         bibliotecaapp.start();
     }
 }

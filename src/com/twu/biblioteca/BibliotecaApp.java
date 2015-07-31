@@ -1,24 +1,26 @@
 package com.twu.biblioteca;
 
 public class BibliotecaApp {
-    View view;
-    Setup setup;
-    Input input;
     Dispatcher dispatcher;
+    View view;
 
-    public BibliotecaApp(View view, Setup setup, Input input, Dispatcher dispatcher) {
+
+    public BibliotecaApp(View view, Dispatcher dispatcher) {
         this.view = view;
-        this.setup = setup;
-        this.input = input;
         this.dispatcher = dispatcher;
     }
 
     public void start() {
-        setup.showWelcomeMessage();
-        setup.showMenu();
+        view.printMessage("Welcome to Biblioteca!!!\n");
+        view.printMessage("-----------------------------------------------\n");
+
         while(true) {
-            dispatcher.dispatch(input.acceptInput());
-            setup.showMenu();
+            view.printMessage("Menu\n");
+            view.printMessage("-----------------------------------------------\n");
+            view.printMessage("1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" + "4.Quit\n");
+            view.printMessage("Enter your choice:\n");
+            dispatcher.dispatch();
+            view.printMessage("\n-----------------------------------------------\n\n");
         }
     }
 }

@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 import java.io.*;
 
 import static org.junit.Assert.assertEquals;
@@ -18,11 +17,9 @@ public class InputTest {
 
     @Test
     public void shouldReturnInput() {
-        View view = Mockito.mock(View.class);
-        int choice = 0;
-        Input input = new Input(choice, view);
+        Input input = new Input();
 
-        choice = input.acceptInput();
+        int choice = input.acceptInput();
 
         assertEquals(1, choice);
     }

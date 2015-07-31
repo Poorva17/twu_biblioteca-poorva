@@ -12,6 +12,8 @@ public class Library {
 
     public boolean checkout(String bookNameToCheckout) {
         for (Book book : bookList) {
+            //title = book.getTitle
+            //title.equalsIgnoreCase(bookNameToCheckout)
             if (book.getTitle().equalsIgnoreCase(bookNameToCheckout)) {
                 return book.ckeckout();
             }
@@ -21,7 +23,7 @@ public class Library {
 
     public ArrayList<Book> getBooklist() {
         ArrayList<Book> availableBookList = new ArrayList<Book>();
-        for (Book book : this.bookList) {
+        for (Book book : bookList) {
             if(book.isAvailable()) {
                 availableBookList.add(book);
             }
