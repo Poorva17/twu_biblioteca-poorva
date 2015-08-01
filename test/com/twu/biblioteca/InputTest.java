@@ -17,7 +17,8 @@ public class InputTest {
 
     @Test
     public void shouldReturnInput() {
-        Input input = new Input();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        Input input = new Input(bufferedReader);
 
         int choice = input.acceptInput();
 

@@ -19,7 +19,7 @@ public class LibraryTest {
 
         Library library = new Library(availableBookList, checkedoutBookList);
 
-        assertEquals(true, library.checkout("Computer Networks"));
+        assertEquals(book1, library.checkout("Computer Networks"));
     }
 
     @Test
@@ -34,6 +34,6 @@ public class LibraryTest {
 
         Library library = new Library(availableBookList, checkedoutBookList);
 
-        assertEquals(true, library.checkin("Computer Networks"));
+        assertEquals(book1, library.checkin("Computer Networks"));
     }
 }

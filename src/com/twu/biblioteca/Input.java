@@ -1,26 +1,29 @@
 package com.twu.biblioteca;
 
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
 
 public class Input {
 
+    BufferedReader bufferedReader;
+
+    public Input(BufferedReader bufferedReader) {
+        this.bufferedReader = bufferedReader;
+    }
+
     public int acceptInput() {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int choice = 0;
         try {
-            choice = Integer.parseInt(br.readLine());
+            choice = Integer.parseInt(bufferedReader.readLine());
         } catch (Exception e) {
         }
         return choice;
     }
 
     public String acceptBookName() {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String bookName = "";
         try {
-            bookName = br.readLine();
+            bookName = bufferedReader.readLine();
             return bookName;
         } catch (Exception e) {
         }

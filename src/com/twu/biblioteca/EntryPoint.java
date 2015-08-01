@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 
@@ -7,7 +9,8 @@ public class EntryPoint {
 
     public static void main(String[] args) {
         View view = new View();
-        Input input = new Input();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        Input input = new Input(bufferedReader);
         Book book1 = new Book("Computer Networks", "Taneunbaum", "2008");
         Book book2 = new Book("Data Structures", "Forouzan", "2002");
         ArrayList<Book> availableBookList = new ArrayList<Book>();

@@ -4,7 +4,6 @@ public class BibliotecaApp {
     Dispatcher dispatcher;
     View view;
 
-
     public BibliotecaApp(View view, Dispatcher dispatcher) {
         this.view = view;
         this.dispatcher = dispatcher;

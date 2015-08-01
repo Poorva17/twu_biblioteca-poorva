@@ -12,14 +12,15 @@ public class Library {
         this.checkedOutBookList = checkedOutBookList;
     }
 
-    public boolean checkout(String bookNameToCheckout) {
+    public Book checkout(String bookNameToCheckout) {
         for (Book book : availableBookList) {
             if (book.hasTitle(bookNameToCheckout)) {
                 addToCheckoutList(book);
-                return true;
+                return book;
             }
         }
-        return false;
+        Book noBook = new Book(" ", " ", " ");
+        return noBook;
     }
 
     private void addToCheckoutList(Book book) {
@@ -31,14 +32,15 @@ public class Library {
         return availableBookList;
     }
 
-    public boolean checkin(String bookNameToCheckin) {
+    public Book checkin(String bookNameToCheckin) {
         for (Book book : checkedOutBookList) {
             if (book.hasTitle(bookNameToCheckin)) {
                 addToCheckinList(book);
-                return true;
+                return book;
             }
         }
-        return false;
+        Book noBook = new Book(" ", " ", " ");
+        return noBook;
     }
 
     private void addToCheckinList(Book book) {

@@ -20,21 +20,13 @@ public class Dispatcher {
                 break;
             case 2:
                 view.printMessage("Enter book name:\n");
-                if(bookList.checkout(input.acceptBookName())) {
-                    view.printMessage("Thank you! Enjoy the book\n");
-                }
-                else {
-                    view.printMessage("That book is not available.\n");
-                }
+                String bookNameToCheckout = input.acceptBookName();
+                view.printCheckoutStatus(bookList.checkout(bookNameToCheckout));
                 break;
             case 3:
                 view.printMessage("Enter book name:\n");
-                if(bookList.checkin(input.acceptBookName())) {
-                    view.printMessage("Thank you for returning the book.\n");
-                }
-                else {
-                    view.printMessage("That is not a valid book to return.\n");
-                }
+                String bookNameToCheckin = input.acceptBookName();
+                view.printCheckinStatus(bookList.checkin(bookNameToCheckin));
                 break;
 
             case 4:
