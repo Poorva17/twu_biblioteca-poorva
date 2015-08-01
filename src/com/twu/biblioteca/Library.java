@@ -12,9 +12,7 @@ public class Library {
 
     public boolean checkout(String bookNameToCheckout) {
         for (Book book : bookList) {
-            //title = book.getTitle
-            //title.equalsIgnoreCase(bookNameToCheckout)
-            if (book.getTitle().equalsIgnoreCase(bookNameToCheckout)) {
+            if (book.hasTitle(bookNameToCheckout)) {
                 return book.ckeckout();
             }
         }
@@ -33,7 +31,7 @@ public class Library {
 
     public boolean checkin(String bookNameToCheckin) {
         for (Book book : bookList) {
-            if (book.getTitle().equalsIgnoreCase(bookNameToCheckin)) {
+            if (book.hasTitle(bookNameToCheckin)) {
                 return book.ckeckin();
             }
         }

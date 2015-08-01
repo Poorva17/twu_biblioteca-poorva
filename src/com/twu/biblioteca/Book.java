@@ -15,7 +15,7 @@ public class Book {
     }
 
     public boolean ckeckout() {
-        if(this.isAvailable) {
+        if (this.isAvailable) {
             this.isAvailable = false;
             return true;
         }
@@ -35,7 +35,7 @@ public class Book {
     }
 
     public boolean ckeckin() {
-        if(!this.isAvailable) {
+        if (!this.isAvailable) {
             this.isAvailable = true;
             return true;
         }
@@ -44,5 +44,11 @@ public class Book {
 
     public boolean isAvailable() {
         return isAvailable;
+    }
+
+    public boolean hasTitle(String bookNameToCheckout) {
+        if (bookNameToCheckout.equalsIgnoreCase(title))
+            return true;
+        return false;
     }
 }
