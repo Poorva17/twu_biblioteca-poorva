@@ -10,26 +10,29 @@ public class LibraryTest {
 
     @Test
     public void shouldCheckoutBookIfAvailable() {
-        Book book1 = new Book("Computer Networks", "Taneunbaum", "2008", true);
-        Book book2 = new Book("Data Structures", "Forouzan", "2002", true);
-        ArrayList<Book> bookList = new ArrayList<Book>();
-        bookList.add(book1);
-        bookList.add(book2);
+        Book book1 = new Book("Computer Networks", "Taneunbaum", "2008");
+        Book book2 = new Book("Data Structures", "Forouzan", "2002");
+        ArrayList<Book> availableBookList = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBookList = new ArrayList<Book>();
+        availableBookList.add(book1);
+        availableBookList.add(book2);
 
-        Library library = new Library(bookList);
+        Library library = new Library(availableBookList, checkedoutBookList);
 
         assertEquals(true, library.checkout("Computer Networks"));
     }
 
     @Test
     public void shouldReturnValidBook() {
-        Book book1 = new Book("Computer Networks", "Taneunbaum", "2008", false);
-        Book book2 = new Book("Data Structures", "Forouzan", "2002", true);
-        ArrayList<Book> bookList = new ArrayList<Book>();
-        bookList.add(book1);
-        bookList.add(book2);
+        Book book1 = new Book("Computer Networks", "Taneunbaum", "2008");
+        Book book2 = new Book("Data Structures", "Forouzan", "2002");
+        ArrayList<Book> availableBookList = new ArrayList<Book>();
+        ArrayList<Book> checkedoutBookList = new ArrayList<Book>();
 
-        Library library = new Library(bookList);
+        checkedoutBookList.add(book1);
+        availableBookList.add(book2);
+
+        Library library = new Library(availableBookList, checkedoutBookList);
 
         assertEquals(true, library.checkin("Computer Networks"));
     }

@@ -8,24 +8,22 @@ import static org.junit.Assert.assertEquals;
 public class BookTest {
 
     @Test
-    public void shouldReturnTrueIfBookIsAvailable() {
+    public void shouldReturnTrueIfTitleMatches() {
         String name = "Computer Networks";
         String author = "Taneunbaum";
         String year = "2008";
-        boolean isAvailable = true;
-        Book book = new Book(name, author, year, isAvailable);
+        Book book = new Book(name, author, year);
 
-        assertEquals(true, book.ckeckout());
+        assertEquals(true, book.hasTitle("Computer Networks"));
     }
 
     @Test
-    public void shouldReturnValidBook() {
+    public void shouldReturnFalseIfTitleDoesNotMatch() {
         String name = "Computer Networks";
         String author = "Taneunbaum";
         String year = "2008";
-        boolean isAvailable = false;
-        Book book = new Book(name, author, year, isAvailable);
+        Book book = new Book(name, author, year);
 
-        assertEquals(true, book.ckeckin());
+        assertEquals(false, book.hasTitle("Data Structures"));
     }
 }

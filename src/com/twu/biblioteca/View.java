@@ -9,7 +9,7 @@ public class View {
 
     public void printListOfBooks(Library library) {
         for (Book book : library.getBooklist()) {
-            System.out.println(book.getTitle() + "\t" + book.getAuthor() + "\t" + book.getYear());
+            System.out.print(book.getDetails());
         }
     }
 }
