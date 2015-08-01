@@ -44,7 +44,7 @@ public class ViewTest {
         availableBookList.add(book1);
         availableBookList.add(book2);
         Library library = new Library(availableBookList, checkoutBookList);
-        view.printListOfBooks(library);
+        view.printListOfBooks(library.getAvailableBooklist());
 
         Assert.assertEquals("Computer Networks\tTaneunbaum\t2008\nData Structures\tForouzan\t2002\n", outputStream.toString());
     }

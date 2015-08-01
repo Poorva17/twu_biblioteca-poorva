@@ -1,14 +1,16 @@
 package com.twu.biblioteca;
 
 
+import java.util.ArrayList;
+
 public class View {
 
     public void printMessage(String message) {
         System.out.print(message);
     }
 
-    public void printListOfBooks(Library library) {
-        for (Book book : library.getBooklist()) {
+    public void printListOfBooks(ArrayList<Book> bookList) {
+        for (Book book : bookList) {
             System.out.print(book.getDetails());
         }
     }

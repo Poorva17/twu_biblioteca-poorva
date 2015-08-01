@@ -21,13 +21,11 @@ public class DispatcherTest {
         availableBookList.add(book2);
         Library library = new Library(availableBookList, checkoutBookList);
         Input input = mock(Input.class);
-
         when(input.acceptInput()).thenReturn(1);
-
         Dispatcher dispatcher = new Dispatcher(view, library, input);
 
         dispatcher.dispatch();
 
-        Mockito.verify(view).printListOfBooks(library);
+        Mockito.verify(view).printListOfBooks(library.getAvailableBooklist());
     }
 }

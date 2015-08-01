@@ -16,7 +16,7 @@ public class BibliotecaApp {
         while(true) {
             view.printMessage("Menu\n");
             view.printMessage("-----------------------------------------------\n");
-            view.printMessage("1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" + "4.Quit\n");
+            view.printMessage("1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" + "4.List Checkout Books\n" + "5.Quit\n");
             view.printMessage("Enter your choice:\n");
             dispatcher.dispatch();
             view.printMessage("\n-----------------------------------------------\n\n");

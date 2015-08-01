@@ -16,7 +16,7 @@ public class Dispatcher {
             case 1:
                 view.printMessage("Book title\tAuthor\tYear published\n");
                 view.printMessage("----------------------------------\n");
-                view.printListOfBooks(bookList);
+                view.printListOfBooks(bookList.getAvailableBooklist());
                 break;
             case 2:
                 view.printMessage("Enter book name:\n");
@@ -28,8 +28,13 @@ public class Dispatcher {
                 String bookNameToCheckin = input.acceptBookName();
                 view.printCheckinStatus(bookList.checkin(bookNameToCheckin));
                 break;
-
             case 4:
+                view.printMessage("List of Checkout Books\n");
+                view.printMessage("Book title\tAuthor\tYear published\n");
+                view.printMessage("----------------------------------\n");
+                view.printListOfBooks(bookList.getCheckoutList());
+                break;
+            case 5:
                 System.exit(0);
                 break;
             default:

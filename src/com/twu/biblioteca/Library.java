@@ -28,7 +28,7 @@ public class Library {
         checkedOutBookList.add(book);
     }
 
-    public ArrayList<Book> getBooklist() {
+    public ArrayList<Book> getAvailableBooklist() {
         return availableBookList;
     }
 
@@ -46,5 +46,9 @@ public class Library {
     private void addToCheckinList(Book book) {
         availableBookList.add(book);
         checkedOutBookList.remove(book);
+    }
+
+    public ArrayList<Book> getCheckoutList() {
+        return checkedOutBookList;
     }
 }
