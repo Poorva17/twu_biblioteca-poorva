@@ -1,8 +1,7 @@
 package com.twu.biblioteca;
 
 
-public class Book {
-    private String title;
+public class Book extends Item{
     private String author;
     private String yearPublished;
 
@@ -10,12 +9,6 @@ public class Book {
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
-    }
-
-    public boolean hasTitle(String bookNameToCheckout) {
-        if (bookNameToCheckout.equalsIgnoreCase(title))
-            return true;
-        return false;
     }
 
     public String getDetails() {

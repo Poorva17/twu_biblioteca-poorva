@@ -17,7 +17,6 @@ public class EntryPoint {
         ArrayList<Book> checkoutBookList = new ArrayList<Book>();
         availableBookList.add(book1);
         availableBookList.add(book2);
-
         Library library = new Library(availableBookList, checkoutBookList);
         Dispatcher dispatcher = new Dispatcher(view, library, input);
         BibliotecaApp bibliotecaapp = new BibliotecaApp(view, dispatcher);
