@@ -55,4 +55,17 @@ public class DispatcherTest {
 
         Mockito.verify(view).printListOfMovies(library.getAvailableMovieList());
     }
+
+    @Test
+    public void shouldCallPrintMovieCheckoutStatusWhenChoiceIs6() {
+        View view = Mockito.mock(View.class);
+        Library library = Mockito.mock(Library.class);
+        Input input = mock(Input.class);
+        when(input.acceptInput()).thenReturn(6);
+        Dispatcher dispatcher = new Dispatcher(view, library, input);
+
+        dispatcher.dispatch();
+
+        Mockito.verify(view).printMovieCheckoutStatus(library.movieCheckout("Krish"));
+    }
 }

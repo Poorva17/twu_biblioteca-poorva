@@ -15,7 +15,7 @@ public class View {
         }
     }
 
-    public void printCheckoutStatus(Book checkoutReturnBook) {
+    public void printBookCheckoutStatus(Book checkoutReturnBook) {
         if (checkoutReturnBook.hasTitle(" "))
             System.out.print("That book is not available.\n");
 
@@ -23,7 +23,7 @@ public class View {
             System.out.print("Thank you! Enjoy the book\n");
     }
 
-    public void printCheckinStatus(Book checkinReturnBook) {
+    public void printBookCheckinStatus(Book checkinReturnBook) {
         if (checkinReturnBook.hasTitle(" "))
             System.out.print("That is not a valid book to return.\n");
         else
@@ -37,6 +37,13 @@ public class View {
         }
     }
 
+    public void printMovieCheckoutStatus(Movie checkoutReturnMovie) {
+        if (checkoutReturnMovie.hasTitle(" "))
+            System.out.print("That movie is not available.\n");
+
+        else
+            System.out.print("Thank you! Enjoy the movie\n");
+    }
 }
 
 

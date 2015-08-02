@@ -20,13 +20,13 @@ public class Dispatcher {
                 break;
             case 2:
                 view.printMessage("Enter book name:\n");
-                String bookNameToCheckout = input.acceptBookName();
-                view.printCheckoutStatus(library.bookCheckout(bookNameToCheckout));
+                String bookNameToCheckout = input.acceptTitle();
+                view.printBookCheckoutStatus(library.bookCheckout(bookNameToCheckout));
                 break;
             case 3:
                 view.printMessage("Enter book name:\n");
-                String bookNameToCheckin = input.acceptBookName();
-                view.printCheckinStatus(library.bookCheckin(bookNameToCheckin));
+                String bookNameToCheckin = input.acceptTitle();
+                view.printBookCheckinStatus(library.bookCheckin(bookNameToCheckin));
                 break;
             case 4:
                 view.printMessage("List of Checkout Books\n");
@@ -40,6 +40,11 @@ public class Dispatcher {
                 view.printListOfMovies(library.getAvailableMovieList());
                 break;
             case 6:
+                view.printMessage("Enter movie name:\n");
+                String movieNameToCheckout = input.acceptTitle();
+                view.printMovieCheckoutStatus(library.movieCheckout(movieNameToCheckout));
+                break;
+            case 7:
                 System.exit(0);
                 break;
             default:

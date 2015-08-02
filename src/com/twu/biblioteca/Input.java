@@ -20,7 +20,7 @@ public class Input {
         return choice;
     }
 
-    public String acceptBookName() {
+    public String acceptTitle() {
         String bookName = "";
         try {
             bookName = bufferedReader.readLine();
