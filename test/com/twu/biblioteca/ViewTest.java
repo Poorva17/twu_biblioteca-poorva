@@ -41,9 +41,11 @@ public class ViewTest {
         Book book2 = new Book("Data Structures", "Forouzan", "2002");
         ArrayList<Book> availableBookList = new ArrayList<Book>();
         ArrayList<Book> checkoutBookList = new ArrayList<Book>();
+        ArrayList<Movie> availableMovieList = new ArrayList<Movie>();
+        ArrayList<Movie> checkedoutMovieList = new ArrayList<Movie>();
         availableBookList.add(book1);
         availableBookList.add(book2);
-        Library library = new Library(availableBookList, checkoutBookList);
+        Library library = new Library(availableBookList, checkoutBookList, availableMovieList, checkedoutMovieList);
         view.printListOfBooks(library.getAvailableBooklist());
 
         Assert.assertEquals("Computer Networks\tTaneunbaum\t2008\nData Structures\tForouzan\t2002\n", outputStream.toString());

@@ -16,10 +16,11 @@ public class LibraryTest {
         ArrayList<Book> checkedoutBookList = new ArrayList<Book>();
         availableBookList.add(book1);
         availableBookList.add(book2);
+        ArrayList<Movie> availableMovieList = new ArrayList<Movie>();
+        ArrayList<Movie> checkedoutMovieList = new ArrayList<Movie>();
+        Library library = new Library(availableBookList, checkedoutBookList, availableMovieList, checkedoutMovieList);
 
-        Library library = new Library(availableBookList, checkedoutBookList);
-
-        assertEquals(book1, library.checkout("Computer Networks"));
+        assertEquals(book1, library.bookCheckout("Computer Networks"));
     }
 
     @Test
@@ -28,12 +29,27 @@ public class LibraryTest {
         Book book2 = new Book("Data Structures", "Forouzan", "2002");
         ArrayList<Book> availableBookList = new ArrayList<Book>();
         ArrayList<Book> checkedoutBookList = new ArrayList<Book>();
-
         checkedoutBookList.add(book1);
         availableBookList.add(book2);
+        ArrayList<Movie> availableMovieList = new ArrayList<Movie>();
+        ArrayList<Movie> checkedoutMovieList = new ArrayList<Movie>();
+        Library library = new Library(availableBookList, checkedoutBookList, availableMovieList, checkedoutMovieList);
 
-        Library library = new Library(availableBookList, checkedoutBookList);
+        assertEquals(book1, library.bookCheckin("Computer Networks"));
+    }
 
-        assertEquals(book1, library.checkin("Computer Networks"));
+    @Test
+    public void shouldReturnAvailableMovieList() {
+        Movie movie1 = new Movie("Krish", "2011", "Rakesh Roshan", "4");
+        Movie movie2 = new Movie("Krish2", "2013", "Rakesh Roshan", "4");
+        ArrayList<Movie> availableMovieList = new ArrayList<Movie>();
+        availableMovieList.add(movie1);
+        availableMovieList.add(movie2);
+        ArrayList<Movie> checkedoutMovieList = new ArrayList<Movie>();
+        ArrayList<Book> availableBookList = new ArrayList<Book>();
+        ArrayList<Book> chekedoutBookList = new ArrayList<Book>();
+        Library library = new Library(availableBookList, chekedoutBookList, availableMovieList, checkedoutMovieList);
+
+        assertEquals(availableMovieList, library.getAvailableMovieList());
     }
 }

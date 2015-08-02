@@ -6,16 +6,20 @@ import java.util.ArrayList;
 public class Library {
     private ArrayList<Book> availableBookList;
     private ArrayList<Book> checkedOutBookList;
+    private ArrayList<Movie> availableMovieList;
+    private ArrayList<Movie> checkedOutMovieList;
 
-    public Library(ArrayList<Book> availableBookList, ArrayList<Book> checkedOutBookList) {
+    public Library(ArrayList<Book> availableBookList, ArrayList<Book> checkedOutBookList, ArrayList<Movie> availableMovieList, ArrayList<Movie> checkedOutMovieList) {
         this.availableBookList = availableBookList;
         this.checkedOutBookList = checkedOutBookList;
+        this.availableMovieList = availableMovieList;
+        this.checkedOutMovieList = checkedOutMovieList;
     }
 
-    public Book checkout(String bookNameToCheckout) {
+    public Book bookCheckout(String bookNameToCheckout) {
         for (Book book : availableBookList) {
             if (book.hasTitle(bookNameToCheckout)) {
-                addToCheckoutList(book);
+                addBookToCheckoutList(book);
                 return book;
             }
         }
@@ -23,7 +27,7 @@ public class Library {
         return noBook;
     }
 
-    private void addToCheckoutList(Book book) {
+    private void addBookToCheckoutList(Book book) {
         availableBookList.remove(book);
         checkedOutBookList.add(book);
     }
@@ -32,7 +36,7 @@ public class Library {
         return availableBookList;
     }
 
-    public Book checkin(String bookNameToCheckin) {
+    public Book bookCheckin(String bookNameToCheckin) {
         for (Book book : checkedOutBookList) {
             if (book.hasTitle(bookNameToCheckin)) {
                 addToCheckinList(book);
@@ -48,7 +52,11 @@ public class Library {
         checkedOutBookList.remove(book);
     }
 
-    public ArrayList<Book> getCheckoutList() {
+    public ArrayList<Book> getBookCheckoutList() {
         return checkedOutBookList;
+    }
+
+    public ArrayList<Movie> getAvailableMovieList() {
+        return availableMovieList;
     }
 }

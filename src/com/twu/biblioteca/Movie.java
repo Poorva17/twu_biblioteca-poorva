@@ -13,6 +13,6 @@ public class Movie extends Item {
     }
 
     public String getDetails() {
-        return title + "\t" + yearPublished + "\t" + director + "\t" + movieRating;
+        return title + "\t" + yearPublished + "\t" + director + "\t" + movieRating + "\n";
     }
 }

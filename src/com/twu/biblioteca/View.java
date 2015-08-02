@@ -30,6 +30,13 @@ public class View {
             System.out.print("Thank you for returning the book.\n");
 
     }
+
+    public void printListOfMovies(ArrayList<Movie> moviesList) {
+        for (Movie movie : moviesList) {
+            System.out.print(movie.getDetails());
+        }
+    }
+
 }
 
 
