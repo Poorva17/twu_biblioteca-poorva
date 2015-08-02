@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -60,12 +61,28 @@ public class DispatcherTest {
     public void shouldCallPrintMovieCheckoutStatusWhenChoiceIs6() {
         View view = Mockito.mock(View.class);
         Library library = Mockito.mock(Library.class);
+        when(library.movieCheckout("Krish")).thenReturn(new Movie("Krish", "2011", "Rakesh Roshan", "4"));
         Input input = mock(Input.class);
         when(input.acceptInput()).thenReturn(6);
+        when(input.acceptTitle()).thenReturn("Krish");
         Dispatcher dispatcher = new Dispatcher(view, library, input);
 
         dispatcher.dispatch();
 
         Mockito.verify(view).printMovieCheckoutStatus(library.movieCheckout("Krish"));
+    }
+
+    @Test
+    public void shouldCallPrintMovieCheckinStatusWhenChoiceIs7() {
+        View view = Mockito.mock(View.class);
+        Library library = Mockito.mock(Library.class);
+        when(library.movieCheckin("Krish")).thenReturn(new Movie("Krish", "2011", "Rakesh Roshan", "4"));
+        Input input = mock(Input.class);
+        when(input.acceptInput()).thenReturn(7);
+        when(input.acceptTitle()).thenReturn("Krish");
+        Dispatcher dispatcher = new Dispatcher(view, library, input);
+        dispatcher.dispatch();
+
+        Mockito.verify(view).printMovieCheckinStatus(library.movieCheckin("Krish"));
     }
 }

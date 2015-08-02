@@ -44,6 +44,13 @@ public class View {
         else
             System.out.print("Thank you! Enjoy the movie\n");
     }
+
+    public void printMovieCheckinStatus(Movie checkinReturnMovie) {
+        if (checkinReturnMovie.hasTitle(" "))
+            System.out.print("That is not a valid movie to return.\n");
+        else
+            System.out.print("Thank you for returning the movie.\n");
+    }
 }
 
 

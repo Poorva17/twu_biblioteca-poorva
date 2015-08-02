@@ -45,6 +45,11 @@ public class Dispatcher {
                 view.printMovieCheckoutStatus(library.movieCheckout(movieNameToCheckout));
                 break;
             case 7:
+                view.printMessage("Enter book name:\n");
+                String movieNameToCheckin = input.acceptTitle();
+                view.printMovieCheckinStatus(library.movieCheckin(movieNameToCheckin));
+                break;
+            case 8:
                 System.exit(0);
                 break;
             default:
