@@ -17,7 +17,7 @@ public class BibliotecaApp {
             view.printMessage("Menu\n");
             view.printMessage("-----------------------------------------------\n");
             view.printMessage("1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" +
-                    "4.List Checkout Books\n" + "5.List of Movies\n" + "6.Checkout Movie\n" + "7.Quit\n");
+                    "4.List Checkout Books\n" + "5.List of Movies\n" + "6.Checkout Movie\n" + "7.Return Movie\n" + "8.Quit\n");
             view.printMessage("Enter your choice:\n");
             dispatcher.dispatch();
             view.printMessage("\n-----------------------------------------------\n\n");
