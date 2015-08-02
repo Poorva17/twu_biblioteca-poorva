@@ -39,7 +39,7 @@ public class Library {
     public Book bookCheckin(String bookNameToCheckin) {
         for (Book book : checkedOutBookList) {
             if (book.hasTitle(bookNameToCheckin)) {
-                addBookToCheckinList(book);
+                addBookToAvailableList(book);
                 return book;
             }
         }
@@ -47,7 +47,7 @@ public class Library {
         return noBook;
     }
 
-    private void addBookToCheckinList(Book book) {
+    private void addBookToAvailableList(Book book) {
         availableBookList.add(book);
         checkedOutBookList.remove(book);
     }
@@ -75,5 +75,21 @@ public class Library {
     private void addMovieToCheckoutList(Movie movie) {
         availableMovieList.remove(movie);
         checkedOutMovieList.add(movie);
+    }
+
+    public Movie movieCheckin(String movieNameToCheckin) {
+        for (Movie movie : checkedOutMovieList) {
+            if (movie.hasTitle(movieNameToCheckin)) {
+                addMovieToAvailableList(movie);
+                return movie;
+            }
+        }
+        Movie noMovie = new Movie(" ", " ", " ", " ");
+        return noMovie;
+    }
+
+    private void addMovieToAvailableList(Movie movie) {
+        availableMovieList.add(movie);
+        checkedOutMovieList.remove(movie);
     }
 }

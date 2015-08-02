@@ -86,4 +86,20 @@ public class LibraryTest {
         assertEquals(noMovie, library.movieCheckout("Krish"));
 
     }
+
+    @Test
+    public void shouldCheckinValidMovie() {
+        Movie movie1 = new Movie("Krish", "2011", "Rakesh Roshan", "4");
+        Movie movie2 = new Movie("Krish2", "2013", "Rakesh Roshan", "4");
+        ArrayList<Movie> availableMovieList = new ArrayList<Movie>();
+        availableMovieList.add(movie1);
+        availableMovieList.add(movie2);
+        ArrayList<Movie> checkedoutMovieList = new ArrayList<Movie>();
+        ArrayList<Book> availableBookList = new ArrayList<Book>();
+        ArrayList<Book> chekedoutBookList = new ArrayList<Book>();
+        Library library = new Library(availableBookList, chekedoutBookList, availableMovieList, checkedoutMovieList);
+        library.movieCheckout("Krish2");
+
+        assertEquals(movie2, library.movieCheckin("Krish2"));
+    }
 }
