@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 
-public class Book extends Item{
+public class Book extends Item {
     private String author;
     private String yearPublished;
 
@@ -12,7 +12,6 @@ public class Book extends Item{
     }
 
     public String getDetails() {
-        return title+"\t"+author+"\t"+yearPublished+"\n";
-
+        return title + "\t" + author + "\t" + yearPublished + "\n";
     }
 }
