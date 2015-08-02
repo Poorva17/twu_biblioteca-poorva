@@ -50,6 +50,12 @@ public class Dispatcher {
                 view.printMovieCheckinStatus(library.movieCheckin(movieNameToCheckin));
                 break;
             case 8:
+                view.printMessage("List of Checkout Movies\n");
+                view.printMessage("Movie title\tYear published\tDirector\tMovie Rating\n");
+                view.printMessage("---------------------------------------------------\n");
+                view.printListOfMovies(library.getMovieCheckoutList());
+                break;
+            case 9:
                 System.exit(0);
                 break;
             default:

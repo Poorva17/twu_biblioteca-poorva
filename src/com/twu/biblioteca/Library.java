@@ -92,4 +92,8 @@ public class Library {
         availableMovieList.add(movie);
         checkedOutMovieList.remove(movie);
     }
+
+    public ArrayList<Movie> getMovieCheckoutList() {
+        return checkedOutMovieList;
+    }
 }
