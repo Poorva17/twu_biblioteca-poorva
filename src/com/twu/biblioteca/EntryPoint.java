@@ -24,8 +24,17 @@ public class EntryPoint {
         availableBookList.add(book1);
         availableBookList.add(book2);
         Library library = new Library(availableBookList, checkoutBookList, availableMovieList, checkoutMovieList);
+        User user1 = new User("Poorva", "poorvasgokhale@gmail.com", "9604590231", "poorva3", "poorva@3", "user");
+        User user2 = new User("Poorva1", "poorvasgokhale@gmail.com", "9604590231", "poorva17", "poorva@17", "user");
+        User user3 = new User("Admin", "poorvasgokhale@gmail.com", "9604590231", "poorva17", "admin1", "admin");
+        ArrayList<User> userList = new ArrayList<User>();
+        userList.add(user1);
+        userList.add(user2);
+        userList.add(user3);
+        UserAccounts userAccounts = new UserAccounts(userList);
         Dispatcher dispatcher = new Dispatcher(view, library, input);
-        BibliotecaApp bibliotecaapp = new BibliotecaApp(view, dispatcher);
+        Login login = new Login(userAccounts, input, view);
+        BibliotecaApp bibliotecaapp = new BibliotecaApp(view, dispatcher, login, input);
         bibliotecaapp.start();
     }
 }

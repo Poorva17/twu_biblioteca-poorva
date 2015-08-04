@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
+
 public class UserAccounts {
     ArrayList<User> userList;
 
@@ -9,12 +10,12 @@ public class UserAccounts {
         this.userList = userList;
     }
 
-    public User displayInformation(String userId, String password) {
+    public String checkLogin(String userCredentials) {
         for (User user : userList) {
-            if (user.matchCredentials(userId, password)) {
-                return user;
+            if (user.matchCredentials(userCredentials)) {
+                return user.displayInformation();
             }
         }
-        return new User("", "", "", "", "");
+        return "User authentication error!!!\n";
     }
 }

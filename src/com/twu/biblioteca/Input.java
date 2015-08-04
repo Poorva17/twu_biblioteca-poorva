@@ -11,21 +11,23 @@ public class Input {
         this.bufferedReader = bufferedReader;
     }
 
-    public int acceptInput() {
+    public int acceptChoice() {
         int choice = 0;
         try {
             choice = Integer.parseInt(bufferedReader.readLine());
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
         }
         return choice;
     }
 
-    public String acceptTitle() {
+    public String acceptInput() {
         String bookName = "";
         try {
             bookName = bufferedReader.readLine();
             return bookName;
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
         }
         return bookName;
     }

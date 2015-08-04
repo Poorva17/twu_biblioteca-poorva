@@ -6,21 +6,24 @@ public class User {
     private String phoneNumber;
     private String userId;
     private String password;
+    private String role;
 
-    public User(String userName, String email, String phoneNumber, String userId, String password) {
+    public User(String userName, String email, String phoneNumber, String userId, String password, String role) {
         this.userName = userName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.userId = userId;
         this.password = password;
+        this.role = role;
     }
 
     public String displayInformation() {
-        return userName + " " + email + " " + phoneNumber + " " + userId + " " + password;
+        return role + " "+ userName + " " + email + " " + phoneNumber + "\n";
     }
 
-    public boolean matchCredentials(String userId, String password) {
-        return (this.userId.equals(userId) && this.password.equals(password));
+    public boolean matchCredentials(String userInput) {
+        String [] userCredentials = userInput.split(" ");
+        return (this.userId.equals(userCredentials[0]) && this.password.equals(userCredentials[1]));
     }
 
     @Override

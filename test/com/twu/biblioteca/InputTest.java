@@ -20,7 +20,7 @@ public class InputTest {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         Input input = new Input(bufferedReader);
 
-        int choice = input.acceptInput();
+        int choice = input.acceptChoice();
 
         assertEquals(1, choice);
     }

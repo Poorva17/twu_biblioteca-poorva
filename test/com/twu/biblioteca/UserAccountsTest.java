@@ -14,12 +14,12 @@ public class UserAccountsTest {
     @Test
     public void shouldReturnUserDetails() {
         User user = Mockito.mock(User.class);
-        when(user.displayInformation()).thenReturn("Poorva poorvasgokhale@gmail.com 9604590231 poorva3 poorva@3");
-        when(user.matchCredentials("poorva3", "poorva@3")).thenReturn(true);
+        when(user.displayInformation()).thenReturn("user Poorva poorvasgokhale@gmail.com 9604590231");
+        when(user.matchCredentials("poorva3")).thenReturn(true);
         ArrayList<User> userList = new ArrayList<User>();
         userList.add(user);
         UserAccounts userAccounts = new UserAccounts(userList);
 
-        assertEquals(user, userAccounts.displayInformation("poorva3", "poorva@3"));
+        assertEquals("user Poorva poorvasgokhale@gmail.com 9604590231", userAccounts.checkLogin("poorva3"));
     }
 }
