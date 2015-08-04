@@ -22,5 +22,4 @@ public class UserAccountsTest {
 
         assertEquals(user, userAccounts.displayInformation("poorva3", "poorva@3"));
     }
-
 }
