@@ -11,7 +11,7 @@ public class Book extends Item {
     }
 
     public String getDetails() {
-        return title + "\t" + author + "\t" + yearPublished + "\n";
+        return String.format("%-20s %-20s %-20s\n", title, author, yearPublished);
     }
 
     @Override

@@ -16,8 +16,8 @@ public class Dispatcher {
             case 0:
                 view.printMessage(currentUser.displayInformation());
             case 1:
-                view.printMessage("Book title\tAuthor\tYear published\n");
-                view.printMessage("----------------------------------\n");
+                view.printMessage(String.format("\n\n\n%-20s %-20s %-20s\n","Book Title", "Author", "Year Published"));
+                view.printMessage("-------------------------------------------------------------------------\n");
                 view.printListOfBooks(library.getAvailableBooklist());
                 break;
             case 2:
@@ -31,14 +31,14 @@ public class Dispatcher {
                 view.printBookCheckinStatus(library.bookCheckin(bookNameToCheckin, currentUser));
                 break;
             case 7:
-                view.printMessage("List of Checkout Books\n");
-                view.printMessage("Book title\tAuthor\tYear published\n");
-                view.printMessage("----------------------------------\n");
+                view.printMessage("\n\nList of Checkout Books\n");
+                view.printMessage(String.format("\n%-20s %-20s %-20s\n","Book Title", "Author", "Year Published\n"));
+                view.printMessage("-----------------------------------------------------------------------------------\n");
                 view.printHashMapBook(library.getBookCheckoutList());
                 break;
             case 4:
-                view.printMessage("Movie tiltle\tYear published\tDirector\tMovie rating\n");
-                view.printMessage("----------------------------------------------------\n");
+                view.printMessage(String.format("\n%-20s %-20s %-20s %-20s\n","Movie Title", "Year published", "Director", "Movie Rating"));
+                view.printMessage("-----------------------------------------------------------------------------------\n");
                 view.printListOfMovies(library.getAvailableMovieList());
                 break;
             case 5:
@@ -53,8 +53,8 @@ public class Dispatcher {
                 break;
             case 8:
                 view.printMessage("List of Checkout Movies\n");
-                view.printMessage("Movie title\tYear published\tDirector\tMovie Rating\n");
-                view.printMessage("---------------------------------------------------\n");
+                view.printMessage(String.format("\n\n\n%-20s %-20s %-20s %-20s","Movie Title", "Year published", "Director", "Movie Rating\n"));
+                view.printMessage("------------------------------------------------------------------------------------\n");
                 view.printHashMapMovie(library.getMovieCheckoutList());
                 break;
             default:

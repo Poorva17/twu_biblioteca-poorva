@@ -41,14 +41,12 @@ public class ViewTest {
         Book book1 = new Book("Computer Networks", "Taneunbaum", "2008");
         Book book2 = new Book("Data Structures", "Forouzan", "2002");
         ArrayList<Book> availableBookList = new ArrayList<Book>();
-        ArrayList<Book> checkoutBookList = new ArrayList<Book>();
         ArrayList<Movie> availableMovieList = new ArrayList<Movie>();
-        ArrayList<Movie> checkedoutMovieList = new ArrayList<Movie>();
         availableBookList.add(book1);
         availableBookList.add(book2);
         HashMap<Book, User> userBookList = new HashMap<Book, User>();
         HashMap<Movie, User> userMovieList = new HashMap<Movie, User>();
-        Library library = new Library(availableBookList, checkoutBookList, availableMovieList, checkedoutMovieList, userBookList, userMovieList);
+        Library library = new Library(availableBookList, availableMovieList, userBookList, userMovieList);
 
         view.printListOfBooks(library.getAvailableBooklist());
 

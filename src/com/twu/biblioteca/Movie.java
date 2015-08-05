@@ -13,7 +13,7 @@ public class Movie extends Item {
     }
 
     public String getDetails() {
-        return title + "\t" + yearPublished + "\t" + director + "\t" + movieRating + "\n";
+        return String.format("%-20s %-20s %-20s %-20s\n", title, yearPublished, director, movieRating);
     }
 
     @Override

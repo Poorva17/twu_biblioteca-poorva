@@ -14,55 +14,58 @@ public class BibliotecaApp {
     }
 
     public void start() {
-        view.printMessage("1. Login\n");
-        view.printMessage("2.Quit\n");
-        view.printMessage("Enter your choice:");
-        int continueApp = input.acceptChoice();
-        if (continueApp == 2) {
-            System.exit(0);
-        }
+        int continueApp = 1;
         while (continueApp == 1) {
+            view.printMessage("\n\t1. Login\n");
+            view.printMessage("\n\t2. Quit\n");
+            view.printMessage("\n\tEnter your choice:\n");
+            continueApp = input.acceptChoice();
+            if (continueApp == 2) {
+                System.exit(0);
+            }
             User currentUser = login.checkLogin();
             int choice;
             boolean untilLogout = true;
             while (untilLogout) {
                 if (currentUser.getRole().equals("admin")) {
-                    view.printMessage("Menu\n");
-                    view.printMessage("-----------------------------------------------\n");
-                    view.printMessage("0.My Profile\n" + "1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" +
-                            "4.List of Movies\n" + "5.Checkout Movie\n" + "6.Return Movie\n" + "7.List Checkout Books\n" + "8.List checkout Movies\n" + "9.Logout\n");
+                    printAdminMenu();
+                    view.printMessage("\t9.Logout\n\t");
                     view.printMessage("Enter your choice:\n");
                     choice = input.acceptChoice();
                     if (choice == 9)
                         untilLogout = false;
+                    view.printMessage("\n============================================================\n\n");
                     dispatcher.dispatch(choice, currentUser);
-                    view.printMessage("\n-----------------------------------------------\n\n");
                 } else if (currentUser.getRole().equals("user")) {
-                    view.printMessage("Menu\n");
-                    view.printMessage("-----------------------------------------------\n");
-                    view.printMessage("0.My Profile\n" + "1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" +
-                            "4.List of Movies\n" + "5.Checkout Movie\n" + "6.Return Movie\n" + "7.Logout\n");
-                    view.printMessage("Enter your choice:\n");
+                    printUserMenu();
+                    view.printMessage("\t7.Logout\n\t");
+                    view.printMessage("Enter your choice:\n\t");
                     choice = input.acceptChoice();
-                    if (choice < 7 && choice >= 0)
+                    if (choice < 7 && choice >= 0) {
+                        view.printMessage("\n============================================================\n\n");
                         dispatcher.dispatch(choice, currentUser);
-                    else if (choice == 7)
+                    } else if (choice == 7)
                         untilLogout = false;
                     else
-                        view.printMessage("Select valid option!\n");
-                    view.printMessage("\n-----------------------------------------------\n\n");
-                }
-                else
+                        view.printMessage("\tSelect valid option!\n");
+                } else
                     untilLogout = false;
             }
-            view.printMessage("1. Login\n");
-            view.printMessage("2.Quit\n");
-            view.printMessage("Enter your choice:");
-            continueApp = input.acceptChoice();
-            if (continueApp == 2) {
-                System.exit(0);
-            }
+
         }
+    }
+
+    private void printUserMenu() {
+        view.printMessage("\n\t\tMenu\n");
+        view.printMessage("\n=====================================================================\n");
+        view.printMessage("\t0.My Profile\n\t1.List of Books\n\t2.Checkout Book\n\t3.Return Book\n\t");
+        view.printMessage("4.List of Movies\n\t5.Checkout Movie\n\t6.Return Movie\n");
+
+    }
+
+    private void printAdminMenu() {
+        printUserMenu();
+        view.printMessage("\t7.List Checkout Books\n\t8.List checkout Movies\n");
     }
 }
 

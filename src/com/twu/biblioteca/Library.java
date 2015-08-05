@@ -6,18 +6,14 @@ import java.util.HashMap;
 
 public class Library {
     private ArrayList<Book> availableBookList;
-    private ArrayList<Book> checkedOutBookList;
     private ArrayList<Movie> availableMovieList;
-    private ArrayList<Movie> checkedOutMovieList;
     private HashMap<Book, User> userBookList;
     private HashMap<Movie, User> userMovieList;
 
-    public Library(ArrayList<Book> availableBookList, ArrayList<Book> checkedOutBookList, ArrayList<Movie> availableMovieList,
-                   ArrayList<Movie> checkedOutMovieList, HashMap<Book, User> userBookList, HashMap<Movie, User> userMovieList) {
+    public Library(ArrayList<Book> availableBookList, ArrayList<Movie> availableMovieList,
+                   HashMap<Book, User> userBookList, HashMap<Movie, User> userMovieList) {
         this.availableBookList = availableBookList;
-        this.checkedOutBookList = checkedOutBookList;
         this.availableMovieList = availableMovieList;
-        this.checkedOutMovieList = checkedOutMovieList;
         this.userBookList = userBookList;
         this.userMovieList = userMovieList;
     }
