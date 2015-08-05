@@ -14,8 +14,10 @@ public class Login {
     public String checkLogin() {
         view.printMessage("Welcome to Biblioteca!!!\n");
         view.printMessage("-----------------------------------------------\n");
-        view.printMessage("Enter Username and password:\n");
-        view.printMessage(userAccounts.checkLogin(input.acceptInput()));
-        return (userAccounts.checkLogin(input.acceptInput()).split(" ")[0]);
+        view.printMessage("Enter Username:\n");
+        String userName = input.acceptInput();
+        view.printMessage("Enter Password:\n");
+        String password = input.acceptInput();
+        return (userAccounts.checkLogin(userName, password).split(" ")[0]);
     }
 }

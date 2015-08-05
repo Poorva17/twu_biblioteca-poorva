@@ -18,13 +18,13 @@ public class UserTest {
     public void shouldReturnTrueWhenCredentialsMatch() {
         User user = new User("Poorva", "poorvasgokhale@gmail.com", "9604590231", "poorva3", "poorva@3", "user");
 
-        assertEquals(true, user.matchCredentials("poorva3 poorva@3"));
+        assertEquals(true, user.matchCredentials("poorva3", "poorva@3"));
     }
 
     @Test
     public void shouldReturnFaleWhenCredentialsDoesNotMatch() {
         User user = new User("Poorva", "poorvasgokhale@gmail.com", "9604590231", "poorva3", "poorva@3", "user");
 
-        assertEquals(false, user.matchCredentials("poorva poorva12"));
+        assertEquals(false, user.matchCredentials("poorva", "poorva12"));
     }
 }

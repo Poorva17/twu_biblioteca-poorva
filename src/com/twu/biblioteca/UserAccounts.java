@@ -10,9 +10,9 @@ public class UserAccounts {
         this.userList = userList;
     }
 
-    public String checkLogin(String userCredentials) {
+    public String checkLogin(String userName, String password) {
         for (User user : userList) {
-            if (user.matchCredentials(userCredentials)) {
+            if (user.matchCredentials(userName, password)) {
                 return user.displayInformation();
             }
         }

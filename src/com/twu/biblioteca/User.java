@@ -21,9 +21,8 @@ public class User {
         return role + " "+ userName + " " + email + " " + phoneNumber + "\n";
     }
 
-    public boolean matchCredentials(String userInput) {
-        String [] userCredentials = userInput.split(" ");
-        return (this.userId.equals(userCredentials[0]) && this.password.equals(userCredentials[1]));
+    public boolean matchCredentials(String userName, String password) {
+        return (this.userId.equals(userName) && this.password.equals(password));
     }
 
     @Override
