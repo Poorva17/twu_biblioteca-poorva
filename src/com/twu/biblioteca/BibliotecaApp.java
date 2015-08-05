@@ -29,7 +29,7 @@ public class BibliotecaApp {
                 if (currentUser.getRole().equals("admin")) {
                     view.printMessage("Menu\n");
                     view.printMessage("-----------------------------------------------\n");
-                    view.printMessage("1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" +
+                    view.printMessage("0.My Profile\n" + "1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" +
                             "4.List of Movies\n" + "5.Checkout Movie\n" + "6.Return Movie\n" + "7.List Checkout Books\n" + "8.List checkout Movies\n" + "9.Logout\n");
                     view.printMessage("Enter your choice:\n");
                     choice = input.acceptChoice();
@@ -40,11 +40,11 @@ public class BibliotecaApp {
                 } else if (currentUser.getRole().equals("user")) {
                     view.printMessage("Menu\n");
                     view.printMessage("-----------------------------------------------\n");
-                    view.printMessage("1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" +
+                    view.printMessage("0.My Profile\n" + "1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" +
                             "4.List of Movies\n" + "5.Checkout Movie\n" + "6.Return Movie\n" + "7.Logout\n");
                     view.printMessage("Enter your choice:\n");
                     choice = input.acceptChoice();
-                    if (choice < 7 && choice >= 1)
+                    if (choice < 7 && choice >= 0)
                         dispatcher.dispatch(choice, currentUser);
                     else if (choice == 7)
                         untilLogout = false;

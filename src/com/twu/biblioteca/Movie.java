@@ -40,13 +40,4 @@ public class Movie extends Item {
         result = 31 * result + (movieRating != null ? movieRating.hashCode() : 0);
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "yearPublished='" + yearPublished + '\'' +
-                ", director='" + director + '\'' +
-                ", movieRating='" + movieRating + '\'' +
-                '}';
-    }
 }

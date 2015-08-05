@@ -13,6 +13,8 @@ public class Dispatcher {
 
     public void dispatch(int choice, User currentUser) {
         switch (choice) {
+            case 0:
+                view.printMessage(currentUser.displayInformation());
             case 1:
                 view.printMessage("Book title\tAuthor\tYear published\n");
                 view.printMessage("----------------------------------\n");

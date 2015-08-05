@@ -32,12 +32,4 @@ public class Book extends Item {
         result = 31 * result + yearPublished.hashCode();
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "author='" + author + '\'' +
-                ", yearPublished='" + yearPublished + '\'' +
-                '}';
-    }
 }
