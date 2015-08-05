@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Library {
@@ -8,18 +9,24 @@ public class Library {
     private ArrayList<Book> checkedOutBookList;
     private ArrayList<Movie> availableMovieList;
     private ArrayList<Movie> checkedOutMovieList;
+    private HashMap<User, ArrayList<Book>> userBookList;
+    private HashMap<User, ArrayList<Movie>> userMovieList;
 
-    public Library(ArrayList<Book> availableBookList, ArrayList<Book> checkedOutBookList, ArrayList<Movie> availableMovieList, ArrayList<Movie> checkedOutMovieList) {
+    public Library(ArrayList<Book> availableBookList, ArrayList<Book> checkedOutBookList, ArrayList<Movie> availableMovieList,
+                   ArrayList<Movie> checkedOutMovieList, HashMap<User, ArrayList<Book>> userBookList, HashMap<User,
+            ArrayList<Movie>> userMovieList) {
         this.availableBookList = availableBookList;
         this.checkedOutBookList = checkedOutBookList;
         this.availableMovieList = availableMovieList;
         this.checkedOutMovieList = checkedOutMovieList;
+        this.userBookList = userBookList;
+        this.userMovieList = userMovieList;
     }
 
     public Book bookCheckout(String bookNameToCheckout, User currentUser) {
         for (Book book : availableBookList) {
             if (book.hasTitle(bookNameToCheckout)) {
-                addBookToCheckoutList(book);
+                addBookToCheckoutList(book, currentUser);
                 return book;
             }
         }
@@ -27,7 +34,7 @@ public class Library {
         return noBook;
     }
 
-    private void addBookToCheckoutList(Book book) {
+    private void addBookToCheckoutList(Book book, User currentUser) {
         availableBookList.remove(book);
         checkedOutBookList.add(book);
     }
@@ -64,7 +71,7 @@ public class Library {
     public Movie movieCheckout(String movieNameToCheckout, User currentUser) {
         for (Movie movie : availableMovieList) {
             if (movie.hasTitle(movieNameToCheckout)) {
-                addMovieToCheckoutList(movie);
+                addMovieToCheckoutList(movie, currentUser);
                 return movie;
             }
         }
@@ -72,7 +79,7 @@ public class Library {
         return noMovie;
     }
 
-    private void addMovieToCheckoutList(Movie movie) {
+    private void addMovieToCheckoutList(Movie movie, User currentUser) {
         availableMovieList.remove(movie);
         checkedOutMovieList.add(movie);
     }

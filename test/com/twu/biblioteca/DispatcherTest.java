@@ -21,7 +21,7 @@ public class DispatcherTest {
         ArrayList<Movie> checkoutMovieList = new ArrayList<Movie>();
         availableBookList.add(book1);
         availableBookList.add(book2);
-        Library library = new Library(availableBookList, checkoutBookList, availableMovieList, checkoutMovieList);
+        Library library = Mockito.mock(Library.class);
         Input input = mock(Input.class);
         when(input.acceptChoice()).thenReturn(1);
         Dispatcher dispatcher = new Dispatcher(view, library, input);

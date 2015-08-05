@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class EntryPoint {
@@ -23,7 +24,9 @@ public class EntryPoint {
         ArrayList<Movie> checkoutMovieList = new ArrayList<Movie>();
         availableBookList.add(book1);
         availableBookList.add(book2);
-        Library library = new Library(availableBookList, checkoutBookList, availableMovieList, checkoutMovieList);
+        HashMap<User, ArrayList<Book>> userBookList = new HashMap<User, ArrayList<Book>>();
+        HashMap<User, ArrayList<Movie>> userMovieList = new HashMap<User, ArrayList<Movie>>();
+        Library library = new Library(availableBookList, checkoutBookList, availableMovieList, checkoutMovieList, userBookList, userMovieList);
         User user1 = new User("Poorva", "poorvasgokhale@gmail.com", "9604590231", "poorva3", "poorva@3", "user");
         User user2 = new User("Poorva1", "poorvasgokhale@gmail.com", "9604590231", "poorva17", "poorva@17", "user");
         User user3 = new User("Admin", "poorvasgokhale@gmail.com", "9604590231", "poorva17", "admin1", "admin");
