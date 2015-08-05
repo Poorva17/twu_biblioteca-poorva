@@ -16,7 +16,7 @@ public class Library {
         this.checkedOutMovieList = checkedOutMovieList;
     }
 
-    public Book bookCheckout(String bookNameToCheckout) {
+    public Book bookCheckout(String bookNameToCheckout, User currentUser) {
         for (Book book : availableBookList) {
             if (book.hasTitle(bookNameToCheckout)) {
                 addBookToCheckoutList(book);
@@ -36,7 +36,7 @@ public class Library {
         return availableBookList;
     }
 
-    public Book bookCheckin(String bookNameToCheckin) {
+    public Book bookCheckin(String bookNameToCheckin, User currentUser) {
         for (Book book : checkedOutBookList) {
             if (book.hasTitle(bookNameToCheckin)) {
                 addBookToAvailableList(book);
@@ -61,7 +61,7 @@ public class Library {
     }
 
 
-    public Movie movieCheckout(String movieNameToCheckout) {
+    public Movie movieCheckout(String movieNameToCheckout, User currentUser) {
         for (Movie movie : availableMovieList) {
             if (movie.hasTitle(movieNameToCheckout)) {
                 addMovieToCheckoutList(movie);
@@ -77,7 +77,7 @@ public class Library {
         checkedOutMovieList.add(movie);
     }
 
-    public Movie movieCheckin(String movieNameToCheckin) {
+    public Movie movieCheckin(String movieNameToCheckin, User currentUser) {
         for (Movie movie : checkedOutMovieList) {
             if (movie.hasTitle(movieNameToCheckin)) {
                 addMovieToAvailableList(movie);

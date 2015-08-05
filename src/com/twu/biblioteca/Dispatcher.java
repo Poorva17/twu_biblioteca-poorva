@@ -11,7 +11,7 @@ public class Dispatcher {
         this.input = input;
     }
 
-    public void dispatch(int choice) {
+    public void dispatch(int choice, User currentUser) {
         switch (choice) {
             case 1:
                 view.printMessage("Book title\tAuthor\tYear published\n");
@@ -21,12 +21,12 @@ public class Dispatcher {
             case 2:
                 view.printMessage("Enter book name:\n");
                 String bookNameToCheckout = input.acceptInput();
-                view.printBookCheckoutStatus(library.bookCheckout(bookNameToCheckout));
+                view.printBookCheckoutStatus(library.bookCheckout(bookNameToCheckout, currentUser));
                 break;
             case 3:
                 view.printMessage("Enter book name:\n");
                 String bookNameToCheckin = input.acceptInput();
-                view.printBookCheckinStatus(library.bookCheckin(bookNameToCheckin));
+                view.printBookCheckinStatus(library.bookCheckin(bookNameToCheckin, currentUser));
                 break;
             case 7:
                 view.printMessage("List of Checkout Books\n");
@@ -42,12 +42,12 @@ public class Dispatcher {
             case 5:
                 view.printMessage("Enter movie name:\n");
                 String movieNameToCheckout = input.acceptInput();
-                view.printMovieCheckoutStatus(library.movieCheckout(movieNameToCheckout));
+                view.printMovieCheckoutStatus(library.movieCheckout(movieNameToCheckout, currentUser));
                 break;
             case 6:
                 view.printMessage("Enter movie name:\n");
                 String movieNameToCheckin = input.acceptInput();
-                view.printMovieCheckinStatus(library.movieCheckin(movieNameToCheckin));
+                view.printMovieCheckinStatus(library.movieCheckin(movieNameToCheckin, currentUser));
                 break;
             case 8:
                 view.printMessage("List of Checkout Movies\n");

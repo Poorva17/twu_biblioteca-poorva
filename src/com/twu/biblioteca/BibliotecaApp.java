@@ -35,7 +35,7 @@ public class BibliotecaApp {
                     choice = input.acceptChoice();
                     if (choice == 9)
                         untilLogout = false;
-                    dispatcher.dispatch(choice);
+                    dispatcher.dispatch(choice, currentUser);
                     view.printMessage("\n-----------------------------------------------\n\n");
                 } else if (currentUser.getRole().equals("user")) {
                     view.printMessage("Menu\n");
@@ -45,7 +45,7 @@ public class BibliotecaApp {
                     view.printMessage("Enter your choice:\n");
                     choice = input.acceptChoice();
                     if (choice < 7 && choice >= 1)
-                        dispatcher.dispatch(choice);
+                        dispatcher.dispatch(choice, currentUser);
                     else if (choice == 7)
                         untilLogout = false;
                     else
