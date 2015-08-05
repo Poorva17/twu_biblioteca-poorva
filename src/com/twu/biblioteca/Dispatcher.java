@@ -32,7 +32,7 @@ public class Dispatcher {
                 view.printMessage("List of Checkout Books\n");
                 view.printMessage("Book title\tAuthor\tYear published\n");
                 view.printMessage("----------------------------------\n");
-                view.printListOfBooks(library.getBookCheckoutList());
+                view.printHashMapBook(library.getBookCheckoutList());
                 break;
             case 4:
                 view.printMessage("Movie tiltle\tYear published\tDirector\tMovie rating\n");
@@ -53,7 +53,7 @@ public class Dispatcher {
                 view.printMessage("List of Checkout Movies\n");
                 view.printMessage("Movie title\tYear published\tDirector\tMovie Rating\n");
                 view.printMessage("---------------------------------------------------\n");
-                view.printListOfMovies(library.getMovieCheckoutList());
+                view.printHashMapMovie(library.getMovieCheckoutList());
                 break;
             default:
                 view.printMessage("Select valid option!\n");

@@ -9,12 +9,11 @@ public class Library {
     private ArrayList<Book> checkedOutBookList;
     private ArrayList<Movie> availableMovieList;
     private ArrayList<Movie> checkedOutMovieList;
-    private HashMap<User, ArrayList<Book>> userBookList;
-    private HashMap<User, ArrayList<Movie>> userMovieList;
+    private HashMap<Book, User> userBookList;
+    private HashMap<Movie, User> userMovieList;
 
     public Library(ArrayList<Book> availableBookList, ArrayList<Book> checkedOutBookList, ArrayList<Movie> availableMovieList,
-                   ArrayList<Movie> checkedOutMovieList, HashMap<User, ArrayList<Book>> userBookList, HashMap<User,
-            ArrayList<Movie>> userMovieList) {
+                   ArrayList<Movie> checkedOutMovieList, HashMap<Book, User> userBookList, HashMap<Movie, User> userMovieList) {
         this.availableBookList = availableBookList;
         this.checkedOutBookList = checkedOutBookList;
         this.availableMovieList = availableMovieList;
@@ -36,7 +35,7 @@ public class Library {
 
     private void addBookToCheckoutList(Book book, User currentUser) {
         availableBookList.remove(book);
-        checkedOutBookList.add(book);
+        userBookList.put(book, currentUser);
     }
 
     public ArrayList<Book> getAvailableBooklist() {
@@ -44,10 +43,12 @@ public class Library {
     }
 
     public Book bookCheckin(String bookNameToCheckin, User currentUser) {
-        for (Book book : checkedOutBookList) {
+        for (Book book : userBookList.keySet()) {
             if (book.hasTitle(bookNameToCheckin)) {
-                addBookToAvailableList(book);
-                return book;
+                if (userBookList.get(book).equals(currentUser)) {
+                    addBookToAvailableList(book);
+                    return book;
+                }
             }
         }
         Book noBook = new Book(" ", " ", " ");
@@ -56,11 +57,11 @@ public class Library {
 
     private void addBookToAvailableList(Book book) {
         availableBookList.add(book);
-        checkedOutBookList.remove(book);
+        userBookList.remove(book);
     }
 
-    public ArrayList<Book> getBookCheckoutList() {
-        return checkedOutBookList;
+    public HashMap<Book, User> getBookCheckoutList() {
+        return userBookList;
     }
 
     public ArrayList<Movie> getAvailableMovieList() {
@@ -81,14 +82,16 @@ public class Library {
 
     private void addMovieToCheckoutList(Movie movie, User currentUser) {
         availableMovieList.remove(movie);
-        checkedOutMovieList.add(movie);
+        userMovieList.put(movie, currentUser);
     }
 
     public Movie movieCheckin(String movieNameToCheckin, User currentUser) {
-        for (Movie movie : checkedOutMovieList) {
+        for (Movie movie : userMovieList.keySet()) {
             if (movie.hasTitle(movieNameToCheckin)) {
-                addMovieToAvailableList(movie);
-                return movie;
+                if (userMovieList.get(movie).equals(currentUser)) {
+                    addMovieToAvailableList(movie);
+                    return movie;
+                }
             }
         }
         Movie noMovie = new Movie(" ", " ", " ", " ");
@@ -97,10 +100,10 @@ public class Library {
 
     private void addMovieToAvailableList(Movie movie) {
         availableMovieList.add(movie);
-        checkedOutMovieList.remove(movie);
+        userMovieList.remove(movie);
     }
 
-    public ArrayList<Movie> getMovieCheckoutList() {
-        return checkedOutMovieList;
+    public HashMap<Movie, User> getMovieCheckoutList() {
+        return userMovieList;
     }
 }

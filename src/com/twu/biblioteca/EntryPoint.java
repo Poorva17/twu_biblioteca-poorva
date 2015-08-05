@@ -24,8 +24,8 @@ public class EntryPoint {
         ArrayList<Movie> checkoutMovieList = new ArrayList<Movie>();
         availableBookList.add(book1);
         availableBookList.add(book2);
-        HashMap<User, ArrayList<Book>> userBookList = new HashMap<User, ArrayList<Book>>();
-        HashMap<User, ArrayList<Movie>> userMovieList = new HashMap<User, ArrayList<Movie>>();
+        HashMap<Book, User> userBookList = new HashMap<Book, User>();
+        HashMap<Movie, User> userMovieList = new HashMap<Movie, User>();
         Library library = new Library(availableBookList, checkoutBookList, availableMovieList, checkoutMovieList, userBookList, userMovieList);
         User user1 = new User("Poorva", "poorvasgokhale@gmail.com", "9604590231", "poorva3", "poorva@3", "user");
         User user2 = new User("Poorva1", "poorvasgokhale@gmail.com", "9604590231", "poorva17", "poorva@17", "user");

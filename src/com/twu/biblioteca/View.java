@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class View {
@@ -50,6 +51,20 @@ public class View {
             System.out.print("That is not a valid movie to return.\n");
         else
             System.out.print("Thank you for returning the movie.\n");
+    }
+
+    public void printHashMapMovie(HashMap<Movie, User> movieCheckoutList) {
+        for (Movie movie: movieCheckoutList.keySet()) {
+            printMessage(movieCheckoutList.get(movie).displayInformation());
+            printMessage(movie.getDetails());
+        }
+    }
+
+    public void printHashMapBook(HashMap<Book, User> bookCheckoutList) {
+        for (Book book: bookCheckoutList.keySet()) {
+            printMessage(bookCheckoutList.get(book).displayInformation());
+            printMessage(book.getDetails());
+        }
     }
 }
 

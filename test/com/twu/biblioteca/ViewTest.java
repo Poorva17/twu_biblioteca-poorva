@@ -46,9 +46,10 @@ public class ViewTest {
         ArrayList<Movie> checkedoutMovieList = new ArrayList<Movie>();
         availableBookList.add(book1);
         availableBookList.add(book2);
-        HashMap<User, ArrayList<Book>> userBookList = new HashMap<User, ArrayList<Book>>();
-        HashMap<User, ArrayList<Movie>> userMovieList = new HashMap<User, ArrayList<Movie>>();
+        HashMap<Book, User> userBookList = new HashMap<Book, User>();
+        HashMap<Movie, User> userMovieList = new HashMap<Movie, User>();
         Library library = new Library(availableBookList, checkoutBookList, availableMovieList, checkedoutMovieList, userBookList, userMovieList);
+
         view.printListOfBooks(library.getAvailableBooklist());
 
         Assert.assertEquals("Computer Networks\tTaneunbaum\t2008\nData Structures\tForouzan\t2002\n", outputStream.toString());

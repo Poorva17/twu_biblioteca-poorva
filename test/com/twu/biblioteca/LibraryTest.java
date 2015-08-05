@@ -22,8 +22,8 @@ public class LibraryTest {
         ArrayList<Movie> availableMovieList = new ArrayList<Movie>();
         ArrayList<Movie> checkedoutMovieList = new ArrayList<Movie>();
         User currentUser = Mockito.mock(User.class);
-        HashMap<User, ArrayList<Book>> userBookList = new HashMap<User, ArrayList<Book>>();
-        HashMap<User, ArrayList<Movie>> userMovieList = new HashMap<User, ArrayList<Movie>>();
+        HashMap<Book, User> userBookList = new HashMap<Book, User>();
+        HashMap<Movie, User> userMovieList = new HashMap<Movie, User>();
         Library library = new Library(availableBookList, checkedoutBookList, availableMovieList, checkedoutMovieList, userBookList, userMovieList);
 
         assertEquals(book1, library.bookCheckout("Computer Networks", currentUser));
@@ -40,8 +40,8 @@ public class LibraryTest {
         ArrayList<Movie> availableMovieList = new ArrayList<Movie>();
         ArrayList<Movie> checkedoutMovieList = new ArrayList<Movie>();
         User currentUser = Mockito.mock(User.class);
-        HashMap<User, ArrayList<Book>> userBookList = new HashMap<User, ArrayList<Book>>();
-        HashMap<User, ArrayList<Movie>> userMovieList = new HashMap<User, ArrayList<Movie>>();
+        HashMap<Book, User> userBookList = new HashMap<Book, User>();
+        HashMap<Movie, User> userMovieList = new HashMap<Movie, User>();
         Library library = new Library(availableBookList, checkedoutBookList, availableMovieList, checkedoutMovieList, userBookList, userMovieList);
 
         assertEquals(book1, library.bookCheckin("Computer Networks", currentUser));
@@ -57,9 +57,10 @@ public class LibraryTest {
         ArrayList<Movie> checkedoutMovieList = new ArrayList<Movie>();
         ArrayList<Book> availableBookList = new ArrayList<Book>();
         ArrayList<Book> chekedoutBookList = new ArrayList<Book>();
-        HashMap<User, ArrayList<Book>> userBookList = new HashMap<User, ArrayList<Book>>();
-        HashMap<User, ArrayList<Movie>> userMovieList = new HashMap<User, ArrayList<Movie>>();
+        HashMap<Book, User> userBookList = new HashMap<Book, User>();
+        HashMap<Movie, User> userMovieList = new HashMap<Movie, User>();
         Library library = new Library(availableBookList, chekedoutBookList, availableMovieList, checkedoutMovieList, userBookList, userMovieList);
+
 
         assertEquals(availableMovieList, library.getAvailableMovieList());
     }
@@ -75,9 +76,10 @@ public class LibraryTest {
         ArrayList<Book> availableBookList = new ArrayList<Book>();
         ArrayList<Book> chekedoutBookList = new ArrayList<Book>();
         User currentUser = Mockito.mock(User.class);
-        HashMap<User, ArrayList<Book>> userBookList = new HashMap<User, ArrayList<Book>>();
-        HashMap<User, ArrayList<Movie>> userMovieList = new HashMap<User, ArrayList<Movie>>();
+        HashMap<Book, User> userBookList = new HashMap<Book, User>();
+        HashMap<Movie, User> userMovieList = new HashMap<Movie, User>();
         Library library = new Library(availableBookList, chekedoutBookList, availableMovieList, checkedoutMovieList, userBookList, userMovieList);
+
         assertEquals(movie1, library.movieCheckout("Krish", currentUser));
 
     }
@@ -94,8 +96,8 @@ public class LibraryTest {
         ArrayList<Book> availableBookList = new ArrayList<Book>();
         ArrayList<Book> chekedoutBookList = new ArrayList<Book>();
         User currentUser = Mockito.mock(User.class);
-        HashMap<User, ArrayList<Book>> userBookList = new HashMap<User, ArrayList<Book>>();
-        HashMap<User, ArrayList<Movie>> userMovieList = new HashMap<User, ArrayList<Movie>>();
+        HashMap<Book, User> userBookList = new HashMap<Book, User>();
+        HashMap<Movie, User> userMovieList = new HashMap<Movie, User>();
         Library library = new Library(availableBookList, chekedoutBookList, availableMovieList, checkedoutMovieList, userBookList, userMovieList);
         library.movieCheckout("Krish", currentUser);
 
@@ -114,8 +116,8 @@ public class LibraryTest {
         ArrayList<Book> availableBookList = new ArrayList<Book>();
         ArrayList<Book> chekedoutBookList = new ArrayList<Book>();
         User currentUser = Mockito.mock(User.class);
-        HashMap<User, ArrayList<Book>> userBookList = new HashMap<User, ArrayList<Book>>();
-        HashMap<User, ArrayList<Movie>> userMovieList = new HashMap<User, ArrayList<Movie>>();
+        HashMap<Book, User> userBookList = new HashMap<Book, User>();
+        HashMap<Movie, User> userMovieList = new HashMap<Movie, User>();
         Library library = new Library(availableBookList, chekedoutBookList, availableMovieList, checkedoutMovieList, userBookList, userMovieList);
         library.movieCheckout("Krish2", currentUser);
 
