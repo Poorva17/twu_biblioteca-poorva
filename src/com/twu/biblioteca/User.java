@@ -62,7 +62,15 @@ public class User {
                 '}';
     }
 
-    public String getRole() {
-        return this.role;
+    public boolean isAdmin() {
+        if (role.equals("admin"))
+            return true;
+        return false;
+    }
+
+    public boolean isUser() {
+        if (role.equals("user"))
+            return true;
+        return false;
     }
 }

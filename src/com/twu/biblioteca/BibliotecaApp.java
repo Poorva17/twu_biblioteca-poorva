@@ -24,48 +24,53 @@ public class BibliotecaApp {
                 System.exit(0);
             }
             User currentUser = login.checkLogin();
-            int choice;
-            boolean untilLogout = true;
-            while (untilLogout) {
-                if (currentUser.getRole().equals("admin")) {
-                    printAdminMenu();
-                    view.printMessage("\t9.Logout\n\t");
-                    view.printMessage("Enter your choice:\n");
-                    choice = input.acceptChoice();
-                    if (choice == 9)
-                        untilLogout = false;
-                    view.printMessage("\n============================================================\n\n");
-                    dispatcher.dispatch(choice, currentUser);
-                } else if (currentUser.getRole().equals("user")) {
-                    printUserMenu();
-                    view.printMessage("\t7.Logout\n\t");
-                    view.printMessage("Enter your choice:\n\t");
-                    choice = input.acceptChoice();
-                    if (choice < 7 && choice >= 0) {
-                        view.printMessage("\n============================================================\n\n");
-                        dispatcher.dispatch(choice, currentUser);
-                    } else if (choice == 7)
-                        untilLogout = false;
-                    else
-                        view.printMessage("\tSelect valid option!\n");
-                } else
-                    untilLogout = false;
-            }
+            menuOptionDispatch(currentUser);
+        }
+    }
 
+    private void menuOptionDispatch(User currentUser) {
+        int choice;
+        while (true) {
+            if (currentUser.isAdmin()) {
+                printAdminMenu();
+                choice = input.acceptChoice();
+                if (choice == 9) {
+                    break;
+                }
+                dispatcher.dispatch(choice, currentUser);
+            }
+            else if (currentUser.isUser()) {
+                printUserMenu();
+                choice = input.acceptChoice();
+                if (choice < 7 && choice >= 0) {
+                    dispatcher.dispatch(choice, currentUser);
+                }
+                else if (choice == 7)
+                    break;
+            }
         }
     }
 
     private void printUserMenu() {
+        view.printMessage("\n=====================================================================\n");
         view.printMessage("\n\t\tMenu\n");
         view.printMessage("\n=====================================================================\n");
         view.printMessage("\t0.My Profile\n\t1.List of Books\n\t2.Checkout Book\n\t3.Return Book\n\t");
         view.printMessage("4.List of Movies\n\t5.Checkout Movie\n\t6.Return Movie\n");
+        view.printMessage("\t7.Logout\n\t");
+        view.printMessage("Enter your choice:\n\t");
 
     }
 
     private void printAdminMenu() {
-        printUserMenu();
+        view.printMessage("\n=====================================================================\n");
+        view.printMessage("\n\t\tMenu\n");
+        view.printMessage("\n=====================================================================\n");
+        view.printMessage("\t0.My Profile\n\t1.List of Books\n\t2.Checkout Book\n\t3.Return Book\n\t");
+        view.printMessage("4.List of Movies\n\t5.Checkout Movie\n\t6.Return Movie\n");
         view.printMessage("\t7.List Checkout Books\n\t8.List checkout Movies\n");
+        view.printMessage("\t9.Logout\n\t");
+        view.printMessage("Enter your choice:\n");
     }
 }
 
