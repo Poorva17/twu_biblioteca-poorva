@@ -14,9 +14,10 @@ public class LoginTest {
         UserAccounts userAccounts = Mockito.mock(UserAccounts.class);
         Login login = new Login(userAccounts, input, view);
         Mockito.when(input.acceptInput()).thenReturn("poorva3").thenReturn("poorva@3");
-        view.printMessage(userAccounts.checkLogin("poorva3", "poorva@3"));
-        Mockito.when(userAccounts.checkLogin("poorva3", "poorva@3")).thenReturn("user Poorva poorvasgokhale@gmail.com 9604590231\n");
+        Mockito.when(userAccounts.checkLogin("poorva3", "poorva@3")).thenReturn(true);
+        User user = new User("Poorva", "poorvasgokhale@gmail.com", "9604590231", "poorva3", "poorva@3", "user");
+        Mockito.when(userAccounts.getUser("poorva3", "poorva@3")).thenReturn(user);
 
-        assertEquals("user", login.checkLogin());
+        assertEquals(user, login.checkLogin());
     }
 }

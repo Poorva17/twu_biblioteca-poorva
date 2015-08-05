@@ -10,12 +10,21 @@ public class UserAccounts {
         this.userList = userList;
     }
 
-    public String checkLogin(String userName, String password) {
+    public boolean checkLogin(String userName, String password) {
         for (User user : userList) {
             if (user.matchCredentials(userName, password)) {
-                return user.displayInformation();
+                return true;
             }
         }
-        return "User authentication error!!!\n";
+        return false;
+    }
+
+    public User getUser(String userName, String password) {
+        for (User user : userList) {
+            if (user.matchCredentials(userName, password)) {
+                return user;
+            }
+        }
+        return new User("", "", "", "", "", "");
     }
 }

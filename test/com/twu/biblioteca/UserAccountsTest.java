@@ -20,6 +20,6 @@ public class UserAccountsTest {
         userList.add(user);
         UserAccounts userAccounts = new UserAccounts(userList);
 
-        assertEquals("user Poorva poorvasgokhale@gmail.com 9604590231", userAccounts.checkLogin("poorva3", "poorva@3"));
+        assertEquals(true, userAccounts.checkLogin("poorva3", "poorva@3"));
     }
 }

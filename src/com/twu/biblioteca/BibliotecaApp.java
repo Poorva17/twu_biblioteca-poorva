@@ -22,11 +22,11 @@ public class BibliotecaApp {
             System.exit(0);
         }
         while (continueApp == 1) {
-            String role = login.checkLogin();
+            User currentUser = login.checkLogin();
             int choice;
             boolean untilLogout = true;
             while (untilLogout) {
-                if (role.equals("admin")) {
+                if (currentUser.getRole().equals("admin")) {
                     view.printMessage("Menu\n");
                     view.printMessage("-----------------------------------------------\n");
                     view.printMessage("1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" +
@@ -37,7 +37,7 @@ public class BibliotecaApp {
                         untilLogout = false;
                     dispatcher.dispatch(choice);
                     view.printMessage("\n-----------------------------------------------\n\n");
-                } else if (role.equals("user")) {
+                } else if (currentUser.getRole().equals("user")) {
                     view.printMessage("Menu\n");
                     view.printMessage("-----------------------------------------------\n");
                     view.printMessage("1.List of Books\n" + "2.Checkout Book\n" + "3.Return Book\n" +
