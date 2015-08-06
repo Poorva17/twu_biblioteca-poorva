@@ -12,20 +12,13 @@ public class Login {
     }
 
     public User checkLogin() {
-        boolean isSuccessfulLogin = false;
-        String userName = "";
-        String password = "";
-        while (!isSuccessfulLogin) {
-            view.printMessage("Welcome to Biblioteca!!!\n");
-            view.printMessage("-----------------------------------------------\n");
-            view.printMessage("Enter Username:\n");
-            userName = input.acceptInput();
-            view.printMessage("Enter Password:\n");
-            password = input.acceptInput();
-            if (userAccounts.checkLogin(userName, password)) {
-                isSuccessfulLogin = true;
-            }
-        }
+        view.printMessage("Welcome to Biblioteca!!!\n");
+        view.printMessage("-----------------------------------------------\n");
+        view.printMessage("Enter Username:\n");
+        String userName = input.acceptInput();
+        view.printMessage("Enter Password:\n");
+        String password = input.acceptInput();
+        userAccounts.checkLogin(userName, password);
         return userAccounts.getUser(userName, password);
     }
 }

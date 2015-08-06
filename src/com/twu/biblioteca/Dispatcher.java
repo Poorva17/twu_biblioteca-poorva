@@ -12,54 +12,65 @@ public class Dispatcher {
     }
 
     public void dispatch(int choice, User currentUser) {
-        switch (choice) {
-            case 0:
-                view.printMessage(currentUser.displayInformation());
-                break;
-            case 1:
-                view.printMessage(String.format("\n\n\n%-20s %-20s %-20s\n","Book Title", "Author", "Year Published"));
-                view.printMessage("-------------------------------------------------------------------------\n");
-                view.printListOfBooks(library.getAvailableBooklist());
-                break;
-            case 2:
-                view.printMessage("Enter book name:\n");
-                String bookNameToCheckout = input.acceptInput();
-                view.printBookCheckoutStatus(library.bookCheckout(bookNameToCheckout, currentUser));
-                break;
-            case 3:
-                view.printMessage("Enter book name:\n");
-                String bookNameToCheckin = input.acceptInput();
-                view.printBookCheckinStatus(library.bookCheckin(bookNameToCheckin, currentUser));
-                break;
-            case 4:
-                view.printMessage(String.format("\n%-20s %-20s %-20s %-20s\n","Movie Title", "Year published", "Director", "Movie Rating"));
-                view.printMessage("-----------------------------------------------------------------------------------\n");
-                view.printListOfMovies(library.getAvailableMovieList());
-                break;
-            case 5:
-                view.printMessage("Enter movie name:\n");
-                String movieNameToCheckout = input.acceptInput();
-                view.printMovieCheckoutStatus(library.movieCheckout(movieNameToCheckout, currentUser));
-                break;
-            case 6:
-                view.printMessage("Enter movie name:\n");
-                String movieNameToCheckin = input.acceptInput();
-                view.printMovieCheckinStatus(library.movieCheckin(movieNameToCheckin, currentUser));
-                break;
-            case 7:
-                view.printMessage("\n\nList of Checkout Books\n");
-                view.printMessage(String.format("\n%-20s %-20s %-20s\n","Book Title", "Author", "Year Published\n"));
-                view.printMessage("-----------------------------------------------------------------------------------\n");
-                view.printHashMapBook(library.getBookCheckoutList());
-                break;
-            case 8:
-                view.printMessage("List of Checkout Movies\n");
-                view.printMessage(String.format("\n\n\n%-20s %-20s %-20s %-20s","Movie Title", "Year published", "Director", "Movie Rating\n"));
-                view.printMessage("------------------------------------------------------------------------------------\n");
-                view.printHashMapMovie(library.getMovieCheckoutList());
-                break;
-            default:
-                view.printMessage("Select valid option!\n");
+        if(validChoice(choice, currentUser)) {
+            switch (choice) {
+                case 0:
+                    view.printMessage(currentUser.displayInformation());
+                    break;
+                case 1:
+                    view.printMessage(String.format("\n\n\n%-20s %-20s %-20s\n", "Book Title", "Author", "Year Published"));
+                    view.printMessage("-------------------------------------------------------------------------\n");
+                    view.printListOfBooks(library.getAvailableBooklist());
+                    break;
+                case 2:
+                    view.printMessage("Enter book name:\n\t\t");
+                    String bookNameToCheckout = input.acceptInput();
+                    view.printBookCheckoutStatus(library.bookCheckout(bookNameToCheckout, currentUser));
+                    break;
+                case 3:
+                    view.printMessage("Enter book name:\n\t\t");
+                    String bookNameToCheckin = input.acceptInput();
+                    view.printBookCheckinStatus(library.bookCheckin(bookNameToCheckin, currentUser));
+                    break;
+                case 4:
+                    view.printMessage(String.format("\n%-20s %-20s %-20s %-20s\n", "Movie Title", "Year published", "Director", "Movie Rating"));
+                    view.printMessage("-----------------------------------------------------------------------------------\n");
+                    view.printListOfMovies(library.getAvailableMovieList());
+                    break;
+                case 5:
+                    view.printMessage("Enter movie name:\n\t\t");
+                    String movieNameToCheckout = input.acceptInput();
+                    view.printMovieCheckoutStatus(library.movieCheckout(movieNameToCheckout, currentUser));
+                    break;
+                case 6:
+                    view.printMessage("Enter movie name:\n\t\t");
+                    String movieNameToCheckin = input.acceptInput();
+                    view.printMovieCheckinStatus(library.movieCheckin(movieNameToCheckin, currentUser));
+                    break;
+                case 7:
+                    view.printMessage("\n\nList of Checkout Books\n");
+                    view.printMessage(String.format("\n%-20s %-20s %-20s\n", "Book Title", "Author", "Year Published\n"));
+                    view.printMessage("-----------------------------------------------------------------------------------\n");
+                    view.printHashMapBook(library.getBookCheckoutList());
+                    break;
+                case 8:
+                    view.printMessage("List of Checkout Movies\n");
+                    view.printMessage(String.format("\n\n\n%-20s %-20s %-20s %-20s", "Movie Title", "Year published", "Director", "Movie Rating\n"));
+                    view.printMessage("------------------------------------------------------------------------------------\n");
+                    view.printHashMapMovie(library.getMovieCheckoutList());
+                    break;
+                default:
+                    view.printMessage("Select valid option!\n");
+            }
         }
+    }
+
+    private boolean validChoice(int choice, User currentUser) {
+        if (currentUser.isUser() && choice >= 0 && choice <= 6)
+            return true;
+        else if (currentUser.isAdmin() && choice >= 0 && choice <= 8)
+            return true;
+        System.out.print("Invalid choice");
+        return false;
     }
 }

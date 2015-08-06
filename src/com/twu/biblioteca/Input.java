@@ -22,13 +22,13 @@ public class Input {
     }
 
     public String acceptInput() {
-        String bookName = "";
+        String inputString = "";
         try {
-            bookName = bufferedReader.readLine();
-            return bookName;
+            inputString = bufferedReader.readLine();
+            return inputString;
         }
         catch (Exception e) {
         }
-        return bookName;
+        return inputString;
     }
 }

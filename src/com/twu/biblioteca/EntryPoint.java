@@ -35,7 +35,12 @@ public class EntryPoint {
         UserAccounts userAccounts = new UserAccounts(userList);
         Dispatcher dispatcher = new Dispatcher(view, library, input);
         Login login = new Login(userAccounts, input, view);
-        BibliotecaApp bibliotecaapp = new BibliotecaApp(view, dispatcher, login, input);
+        AdminMenuView adminMenuView = new AdminMenuView(input, dispatcher);
+        UserMenuView userMenuView = new UserMenuView(input, dispatcher);
+        InvalidView invalidView = new InvalidView();
+        DispatcherLogin dispatcherLogin = new DispatcherLogin(login, adminMenuView, userMenuView, invalidView);
+        WelcomeView welcomeView = new WelcomeView(input, dispatcherLogin);
+        BibliotecaApp bibliotecaapp = new BibliotecaApp(view, dispatcher, login, input, welcomeView);
         bibliotecaapp.start();
     }
 }
