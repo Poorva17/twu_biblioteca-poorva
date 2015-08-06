@@ -1,4 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
+
+import com.twu.biblioteca.controller.DispatcherLogin;
+import com.twu.biblioteca.model.User;
+
 
 public class WelcomeView implements IView {
     Input input;

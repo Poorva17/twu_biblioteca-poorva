@@ -1,11 +1,17 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.controller;
+
+import com.twu.biblioteca.model.User;
+import com.twu.biblioteca.view.Input;
+import com.twu.biblioteca.model.UserAccounts;
+
 
 public class Login {
+
     Input input;
     UserAccounts userAccounts;
-    View view;
+    com.twu.biblioteca.view.View view;
 
-    public Login(UserAccounts userAccounts, Input input, View view) {
+    public Login(UserAccounts userAccounts, Input input, com.twu.biblioteca.view.View view) {
         this.userAccounts = userAccounts;
         this.input = input;
         this.view = view;

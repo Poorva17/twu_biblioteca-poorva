@@ -1,6 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
-public class Movie extends Item {
+public class Movie extends com.twu.biblioteca.model.Item {
     private String yearPublished;
     private String director;
     private String movieRating;

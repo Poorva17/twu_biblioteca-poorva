@@ -1,6 +1,12 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.controller;
+
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.view.Input;
+import com.twu.biblioteca.view.View;
+
 
 public class Dispatcher {
+
     private View view;
     private Library library;
     private Input input;
@@ -11,7 +17,7 @@ public class Dispatcher {
         this.input = input;
     }
 
-    public void dispatch(int choice, User currentUser) {
+    public void dispatch(int choice, com.twu.biblioteca.model.User currentUser) {
         if(validChoice(choice, currentUser)) {
             switch (choice) {
                 case 0:
@@ -65,7 +71,7 @@ public class Dispatcher {
         }
     }
 
-    private boolean validChoice(int choice, User currentUser) {
+    private boolean validChoice(int choice, com.twu.biblioteca.model.User currentUser) {
         if (currentUser.isUser() && choice >= 0 && choice <= 6)
             return true;
         else if (currentUser.isAdmin() && choice >= 0 && choice <= 8)

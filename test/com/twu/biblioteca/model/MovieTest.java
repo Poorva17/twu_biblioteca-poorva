@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ public class MovieTest {
         String yearPublished = "2011";
         String director = "Rakesh Roshan";
         String movieRating = "4";
-        Movie movie = new Movie(title, yearPublished, director, movieRating);
+        com.twu.biblioteca.model.Movie movie = new com.twu.biblioteca.model.Movie(title, yearPublished, director, movieRating);
 
         assertEquals(true, movie.hasTitle("Krish"));
     }
@@ -22,7 +22,7 @@ public class MovieTest {
         String yearPublished = "2011";
         String director = "Rakesh Roshan";
         String movieRating = "4";
-        Movie movie = new Movie(title, yearPublished, director, movieRating);
+        com.twu.biblioteca.model.Movie movie = new com.twu.biblioteca.model.Movie(title, yearPublished, director, movieRating);
 
         assertEquals(false, movie.hasTitle("Krish 2"));
     }

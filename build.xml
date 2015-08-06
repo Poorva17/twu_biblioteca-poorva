@@ -20,14 +20,14 @@
              basedir="out"
              excludes="**/Test.class">
             <manifest>
-                <attribute name="Main-Class" value="com.twu.biblioteca.EntryPoint"/>
+                <attribute name="Main-Class" value="com.twu.biblioteca.controller.EntryPoint"/>
             </manifest>
 
         </jar>
     </target>
 
     <target name="run" depends="build-jar">
-        <java fork="true" failonerror="yes" classname="com.twu.biblioteca.EntryPoint">
+        <java fork="true" failonerror="yes" classname="com.twu.biblioteca.controller.EntryPoint">
             <classpath>
                 <path location="lib/Biblioteca.jar"/>
                 <path location="lib/mockito-all-1.9.5.jar"/>

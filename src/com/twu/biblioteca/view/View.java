@@ -1,5 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.model.Movie;
+import com.twu.biblioteca.model.User;
 import java.util.ArrayList;
 import java.util.HashMap;
 

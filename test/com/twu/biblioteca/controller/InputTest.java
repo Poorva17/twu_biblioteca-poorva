@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.controller;
 
 import org.junit.After;
 import org.junit.Before;
@@ -18,7 +18,7 @@ public class InputTest {
     @Test
     public void shouldReturnInput() {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        Input input = new Input(bufferedReader);
+        com.twu.biblioteca.view.Input input = new com.twu.biblioteca.view.Input(bufferedReader);
 
         int choice = input.acceptChoice();
 

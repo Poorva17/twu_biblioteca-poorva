@@ -1,6 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.controller;
+
+import com.twu.biblioteca.view.AdminMenuView;
+import com.twu.biblioteca.view.InvalidView;
+import com.twu.biblioteca.view.UserMenuView;
 
 public class DispatcherLogin {
+
     private Login login;
     private AdminMenuView adminView;
     private UserMenuView userView;
@@ -13,7 +18,7 @@ public class DispatcherLogin {
         this.invalidView = invalidView;
     }
 
-    public User dispatch(int choice) {
+    public com.twu.biblioteca.model.User dispatch(int choice) {
         if (choice == 1) {
             return login.checkLogin();
         }
@@ -23,7 +28,7 @@ public class DispatcherLogin {
         return null;
     }
 
-    public IView dispatchMenu(User user) {
+    public com.twu.biblioteca.view.IView dispatchMenu(com.twu.biblioteca.model.User user) {
         if (user.isAdmin()) {
             return adminView;
         }
