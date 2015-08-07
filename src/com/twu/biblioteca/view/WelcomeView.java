@@ -16,9 +16,11 @@ public class WelcomeView implements IView {
 
     public void render(User user) {
         while (true) {
+            System.out.print("\n\n-------------------------------------------------------------------------\n");
             System.out.print("Welcome to Biblioteca!!!\n");
             System.out.print("\n\t1. Login");
             System.out.print("\n\t2. Quit");
+            System.out.print("\n\n-------------------------------------------------------------------------\n");
             System.out.print("\n\tEnter your choice:\n");
             user = dispatcherLogin.dispatch(input.acceptChoice());
             nextView = dispatcherLogin.dispatchMenu(user);

@@ -58,14 +58,14 @@ public class View {
 
     public void printHashMapMovie(HashMap<Movie, User> movieCheckoutList) {
         for (Movie movie: movieCheckoutList.keySet()) {
-            printMessage(movieCheckoutList.get(movie).displayInformation());
+            printMessage(movieCheckoutList.get(movie).getInformation());
             printMessage(movie.getDetails());
         }
     }
 
     public void printHashMapBook(HashMap<Book, User> bookCheckoutList) {
         for (Book book: bookCheckoutList.keySet()) {
-            printMessage(bookCheckoutList.get(book).displayInformation());
+            printMessage(bookCheckoutList.get(book).getInformation());
             printMessage(book.getDetails());
         }
     }

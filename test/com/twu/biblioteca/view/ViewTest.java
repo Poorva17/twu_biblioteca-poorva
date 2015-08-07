@@ -50,6 +50,7 @@ public class ViewTest {
 
         view.printListOfBooks(library.getAvailableBooklist());
 
-        Assert.assertEquals("Computer Networks\tTaneunbaum\t2008\nData Structures\tForouzan\t2002\n", outputStream.toString());
+        Assert.assertEquals("Computer Networks    Taneunbaum           2008                \n" +
+                "Data Structures      Forouzan             2002                \n", outputStream.toString());
     }
 }

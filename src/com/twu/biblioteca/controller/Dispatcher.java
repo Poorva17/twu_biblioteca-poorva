@@ -21,6 +21,8 @@ public class Dispatcher {
         if(validChoice(choice, currentUser)) {
             switch (choice) {
                 case 0:
+                    view.printMessage(String.format("\n\n%-20s %-10s %-30s %-20s\n", "Library No", "Name", "Email", "Contact No"));
+                    view.printMessage("--------------------------------------------------------------------------------\n");
                     view.printMessage(currentUser.displayInformation());
                     break;
                 case 1:
@@ -55,7 +57,7 @@ public class Dispatcher {
                     break;
                 case 7:
                     view.printMessage("\n\nList of Checkout Books\n");
-                    view.printMessage(String.format("\n%-20s %-20s %-20s\n", "Book Title", "Author", "Year Published\n"));
+                    view.printMessage(String.format("\n%-10s %-10s %-20s %-20s %-20s\n", "Library No", "Name", "Book Title", "Author", "Year Published\n"));
                     view.printMessage("-----------------------------------------------------------------------------------\n");
                     view.printHashMapBook(library.getBookCheckoutList());
                     break;

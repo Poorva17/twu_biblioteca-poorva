@@ -18,7 +18,7 @@ public class User {
     }
 
     public String displayInformation() {
-        return role + " "+ userName + " " + email + " " + phoneNumber + "\n";
+        return String.format("\n%-20s %-10s %-30s %-20s\n\n", userId, userName, email, phoneNumber);
     }
 
     public boolean matchCredentials(String userName, String password) {
@@ -60,5 +60,9 @@ public class User {
         if (role.equals("user"))
             return true;
         return false;
+    }
+
+    public String getInformation() {
+        return String.format("\n%-10s %-10s", userId, userName);
     }
 }
