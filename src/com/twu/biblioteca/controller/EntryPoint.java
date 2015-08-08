@@ -34,7 +34,6 @@ public class EntryPoint {
         HashMap<Item, User> userMovieList = new HashMap<Item, User>();
         Section bookSection = new Section(availableBookList, userBookList);
         Section movieSection = new Section(availableMovieList, userMovieList);
-      //  Library library = new Library(availableBookList, availableMovieList, userBookList, userMovieList);
         User user1 = new User("Poorva", "poorvasgokhale@gmail.com", "9604590231", "111-1111", "poorva@3", "user");
         User user2 = new User("Poorva1", "poorvasgokhale@gmail.com", "9604590231", "222-2222", "poorva@17", "user");
         User user3 = new User("Admin", "poorvasgokhale@gmail.com", "9604590231", "000-0000", "admin1", "admin");

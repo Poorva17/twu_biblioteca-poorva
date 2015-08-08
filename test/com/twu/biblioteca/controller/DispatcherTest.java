@@ -25,12 +25,12 @@ public class DispatcherTest {
         Section movieSection = Mockito.mock(Section.class);
         when(bookSection.getAvailableItemList()).thenReturn(availableBookList);
         Input input = mock(Input.class);
-        when(input.acceptChoice()).thenReturn(1);
+        when(input.acceptChoice()).thenReturn("1");
         Dispatcher dispatcher = new Dispatcher(view, bookSection, movieSection, input);
         User currentUser = Mockito.mock(User.class);
         when(currentUser.isAdmin()).thenReturn(true);
 
-        dispatcher.dispatch(1, currentUser);
+        dispatcher.dispatch("1", currentUser);
 
         Mockito.verify(view).printListOfBooks(bookSection.getAvailableItemList());
     }
@@ -48,12 +48,12 @@ public class DispatcherTest {
         Section movieSection = Mockito.mock(Section.class);
         when(movieSection.getAvailableItemList()).thenReturn(availableMovieList);
         Input input = mock(Input.class);
-        when(input.acceptChoice()).thenReturn(1);
+        when(input.acceptChoice()).thenReturn("1");
         Dispatcher dispatcher = new Dispatcher(view, bookSection, movieSection, input);
         User currentUser = Mockito.mock(User.class);
         when(currentUser.isAdmin()).thenReturn(true);
 
-        dispatcher.dispatch(4, currentUser);
+        dispatcher.dispatch("4", currentUser);
 
         Mockito.verify(view).printListOfMovies(movieSection.getAvailableItemList());
     }
@@ -67,13 +67,13 @@ public class DispatcherTest {
         when(currentUser.isAdmin()).thenReturn(true);
         when(movieSection.itemCheckout("Krish", currentUser)).thenReturn(new Movie("Krish", "2011", "Rakesh Roshan", "4"));
         Input input = mock(Input.class);
-        when(input.acceptChoice()).thenReturn(5);
+        when(input.acceptChoice()).thenReturn("5");
         when(input.acceptInput()).thenReturn("Krish");
         Dispatcher dispatcher = new Dispatcher(view, bookSection, movieSection, input);
 
         dispatcher.dispatch(input.acceptChoice(), currentUser);
 
-        Mockito.verify(view).printMovieCheckoutStatus((Movie) movieSection.itemCheckout("Krish", currentUser));
+        Mockito.verify(view).printMovieCheckoutStatus(movieSection.itemCheckout("Krish", currentUser));
     }
 
     @Test
@@ -85,12 +85,12 @@ public class DispatcherTest {
         when(currentUser.isAdmin()).thenReturn(true);
         when(movieSection.itemCheckin("Krish", currentUser)).thenReturn(new Movie("Krish", "2011", "Rakesh Roshan", "4"));
         Input input = mock(Input.class);
-        when(input.acceptChoice()).thenReturn(6);
+        when(input.acceptChoice()).thenReturn("6");
         when(input.acceptInput()).thenReturn("Krish");
         Dispatcher dispatcher = new Dispatcher(view, bookSection, movieSection, input);
 
         dispatcher.dispatch(input.acceptChoice(), currentUser);
 
-        Mockito.verify(view).printMovieCheckinStatus((Movie) movieSection.itemCheckin("Krish", currentUser));
+        Mockito.verify(view).printMovieCheckinStatus(movieSection.itemCheckin("Krish", currentUser));
     }
 }

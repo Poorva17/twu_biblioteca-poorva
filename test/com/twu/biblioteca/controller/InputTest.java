@@ -20,9 +20,9 @@ public class InputTest {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         com.twu.biblioteca.view.Input input = new com.twu.biblioteca.view.Input(bufferedReader);
 
-        int choice = input.acceptChoice();
+        String  choice = input.acceptChoice();
 
-        assertEquals(1, choice);
+        assertEquals("1", choice);
     }
 
     @After

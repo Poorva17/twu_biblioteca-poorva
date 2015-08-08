@@ -20,17 +20,19 @@ public class DispatcherLogin {
         this.invalidView = invalidView;
     }
 
-    public User dispatch(int choice) {
-        if (choice == 1) {
+    public User dispatch(String choice) {
+        if (choice.equalsIgnoreCase("1")) {
             return login.checkLogin();
         }
-        else if (choice == 2) {
+        else if (choice.equalsIgnoreCase("2")) {
             System.exit(0);
         }
         return null;
     }
 
     public IView dispatchMenu(User user) {
+        if(user == null)
+            return invalidView;
         if (user.isAdmin()) {
             return adminView;
         }

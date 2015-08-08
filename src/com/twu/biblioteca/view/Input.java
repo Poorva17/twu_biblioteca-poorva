@@ -11,12 +11,13 @@ public class Input {
         this.bufferedReader = bufferedReader;
     }
 
-    public int acceptChoice() {
-        int choice = 0;
+    public String acceptChoice() {
+        String choice = "";
         try {
-            choice = Integer.parseInt(bufferedReader.readLine());
+            choice = bufferedReader.readLine();
         }
         catch (Exception e) {
+            System.out.print("Select valid option!!!");
         }
         return choice;
     }
