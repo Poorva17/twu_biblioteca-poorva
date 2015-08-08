@@ -7,6 +7,10 @@ public class Item {
         this.title = title;
     }
 
+    public String getDetails() {
+        return String.format("%-20s", title);
+    }
+
     public boolean hasTitle(String titleToCheck) {
         return title.equalsIgnoreCase(titleToCheck);
     }

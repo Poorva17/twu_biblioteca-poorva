@@ -16,10 +16,12 @@ public class Section {
     public Item itemCheckout(String itemNameToCheckout, User currentUser) {
         for (Item item : availableItemList) {
             if (item.hasTitle(itemNameToCheckout)) {
+                System.out.print("this is available");
                 addItemToCheckoutList(item, currentUser);
                 return item;
             }
         }
+        System.out.print("this is not available");
         Item noItem = new Item("");
         return noItem;
     }

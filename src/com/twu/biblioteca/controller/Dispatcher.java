@@ -1,6 +1,6 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.Section;
 import com.twu.biblioteca.model.User;
 import com.twu.biblioteca.view.Input;
 import com.twu.biblioteca.view.View;
@@ -9,12 +9,14 @@ import com.twu.biblioteca.view.View;
 public class Dispatcher {
 
     private View view;
-    private Library library;
+    private Section bookLibrary;
+    private Section movieLibrary;
     private Input input;
 
-    public Dispatcher(View view, Library library, Input input) {
+    public Dispatcher(View view, Section bookLibrary, Section movieLibrary, Input input) {
         this.view = view;
-        this.library = library;
+        this.bookLibrary = bookLibrary;
+        this.movieLibrary = movieLibrary;
         this.input = input;
     }
 
@@ -29,44 +31,44 @@ public class Dispatcher {
                 case 1:
                     view.printMessage(String.format("\n\n\n%-20s %-20s %-20s\n", "Book Title", "Author", "Year Published"));
                     view.printMessage("-------------------------------------------------------------------------\n");
-                    view.printListOfBooks(library.getAvailableBooklist());
+                    view.printListOfBooks(bookLibrary.getAvailableItemList());
                     break;
                 case 2:
                     view.printMessage("Enter book name:\n\t\t");
                     String bookNameToCheckout = input.acceptInput();
-                    view.printBookCheckoutStatus(library.bookCheckout(bookNameToCheckout, currentUser));
+                    view.printBookCheckoutStatus(bookLibrary.itemCheckout(bookNameToCheckout, currentUser));
                     break;
                 case 3:
                     view.printMessage("Enter book name:\n\t\t");
                     String bookNameToCheckin = input.acceptInput();
-                    view.printBookCheckinStatus(library.bookCheckin(bookNameToCheckin, currentUser));
+                    view.printBookCheckinStatus( bookLibrary.itemCheckin(bookNameToCheckin, currentUser));
                     break;
                 case 4:
                     view.printMessage(String.format("\n%-20s %-20s %-20s %-20s\n", "Movie Title", "Year published", "Director", "Movie Rating"));
                     view.printMessage("-----------------------------------------------------------------------------------\n");
-                    view.printListOfMovies(library.getAvailableMovieList());
+                    view.printListOfMovies(movieLibrary.getAvailableItemList());
                     break;
                 case 5:
                     view.printMessage("Enter movie name:\n\t\t");
                     String movieNameToCheckout = input.acceptInput();
-                    view.printMovieCheckoutStatus(library.movieCheckout(movieNameToCheckout, currentUser));
+                    view.printMovieCheckoutStatus(movieLibrary.itemCheckout(movieNameToCheckout, currentUser));
                     break;
                 case 6:
                     view.printMessage("Enter movie name:\n\t\t");
                     String movieNameToCheckin = input.acceptInput();
-                    view.printMovieCheckinStatus(library.movieCheckin(movieNameToCheckin, currentUser));
+                    view.printMovieCheckinStatus( movieLibrary.itemCheckin(movieNameToCheckin, currentUser));
                     break;
                 case 7:
                     view.printMessage("\n\nList of Checkout Books\n");
                     view.printMessage(String.format("\n%-10s %-10s %-20s %-20s %-20s\n", "Library No", "Name", "Book Title", "Author", "Year Published\n"));
                     view.printMessage("-----------------------------------------------------------------------------------\n");
-                    view.printHashMapBook(library.getBookCheckoutList());
+                    view.printHashMapBook(movieLibrary.getCheckoutList());
                     break;
                 case 8:
                     view.printMessage("List of Checkout Movies\n");
                     view.printMessage(String.format("\n\n\n%-20s %-20s %-20s %-20s", "Movie Title", "Year published", "Director", "Movie Rating\n"));
                     view.printMessage("------------------------------------------------------------------------------------\n");
-                    view.printHashMapMovie(library.getMovieCheckoutList());
+                    view.printHashMapMovie(movieLibrary.getCheckoutList());
                     break;
                 default:
                     view.printMessage("Select valid option!\n");

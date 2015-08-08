@@ -1,5 +1,6 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.model.*;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -38,17 +39,18 @@ public class ViewTest {
     public void shouldPrintListOfBooks() {
 
         com.twu.biblioteca.view.View view = new com.twu.biblioteca.view.View();
-        com.twu.biblioteca.model.Book book1 = new com.twu.biblioteca.model.Book("Computer Networks", "Taneunbaum", "2008");
-        com.twu.biblioteca.model.Book book2 = new com.twu.biblioteca.model.Book("Data Structures", "Forouzan", "2002");
-        ArrayList<com.twu.biblioteca.model.Book> availableBookList = new ArrayList<com.twu.biblioteca.model.Book>();
-        ArrayList<com.twu.biblioteca.model.Movie> availableMovieList = new ArrayList<com.twu.biblioteca.model.Movie>();
+        Book book1 = new Book("Computer Networks", "Taneunbaum", "2008");
+        Book book2 = new Book("Data Structures", "Forouzan", "2002");
+        ArrayList<Item> availableBookList = new ArrayList<Item>();
+        ArrayList<Item> availableMovieList = new ArrayList<Item>();
         availableBookList.add(book1);
         availableBookList.add(book2);
-        HashMap<com.twu.biblioteca.model.Book, com.twu.biblioteca.model.User> userBookList = new HashMap<com.twu.biblioteca.model.Book, com.twu.biblioteca.model.User>();
-        HashMap<com.twu.biblioteca.model.Movie, com.twu.biblioteca.model.User> userMovieList = new HashMap<com.twu.biblioteca.model.Movie, com.twu.biblioteca.model.User>();
-        com.twu.biblioteca.model.Library library = new com.twu.biblioteca.model.Library(availableBookList, availableMovieList, userBookList, userMovieList);
+        HashMap<Item, User> userBookList = new HashMap<Item, User>();
+        HashMap<Item, User> userMovieList = new HashMap<Item, User>();
+        Section bookSection = new Section(availableBookList, userBookList);
+        Section movieSection = new Section(availableMovieList, userMovieList);
 
-        view.printListOfBooks(library.getAvailableBooklist());
+        view.printListOfBooks(bookSection.getAvailableItemList());
 
         Assert.assertEquals("Computer Networks    Taneunbaum           2008                \n" +
                 "Data Structures      Forouzan             2002                \n", outputStream.toString());

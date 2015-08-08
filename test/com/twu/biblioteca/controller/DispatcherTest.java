@@ -1,9 +1,6 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.model.Library;
-import com.twu.biblioteca.model.Movie;
-import com.twu.biblioteca.model.User;
+import com.twu.biblioteca.model.*;
 import com.twu.biblioteca.view.Input;
 import com.twu.biblioteca.view.View;
 import org.junit.Test;
@@ -18,23 +15,24 @@ public class DispatcherTest {
 
     @Test
     public void shouldCallPrintListMethodWhenChoiceIs1() {
-          View view = Mockito.mock(View.class);
+        View view = Mockito.mock(View.class);
         Book book1 = new Book("Computer Networks", "Taneunbaum", "2008");
         Book book2 = new Book("Data Structures", "Forouzan", "2002");
-        ArrayList<Book> availableBookList = new ArrayList<Book>();
+        ArrayList<Item> availableBookList = new ArrayList<Item>();
         availableBookList.add(book1);
         availableBookList.add(book2);
-        Library library = Mockito.mock(Library.class);
-        when(library.getAvailableBooklist()).thenReturn(availableBookList);
+        Section bookSection = Mockito.mock(Section.class);
+        Section movieSection = Mockito.mock(Section.class);
+        when(bookSection.getAvailableItemList()).thenReturn(availableBookList);
         Input input = mock(Input.class);
         when(input.acceptChoice()).thenReturn(1);
-        Dispatcher dispatcher = new Dispatcher(view, library, input);
+        Dispatcher dispatcher = new Dispatcher(view, bookSection, movieSection, input);
         User currentUser = Mockito.mock(User.class);
         when(currentUser.isAdmin()).thenReturn(true);
 
         dispatcher.dispatch(1, currentUser);
 
-        Mockito.verify(view).printListOfBooks(library.getAvailableBooklist());
+        Mockito.verify(view).printListOfBooks(bookSection.getAvailableItemList());
     }
 
     @Test
@@ -43,53 +41,56 @@ public class DispatcherTest {
 
         Movie movie1 = new Movie("Krish", "2011", "Rakesh Roshan", "4");
         Movie movie2 = new Movie("Krish2", "2013", "Rakesh Roshan", "4");
-        ArrayList<Movie> availableMovieList = new ArrayList<Movie>();
+        ArrayList<Item> availableMovieList = new ArrayList<Item>();
         availableMovieList.add(movie1);
         availableMovieList.add(movie2);
-        Library library = Mockito.mock(Library.class);
-        when(library.getAvailableMovieList()).thenReturn(availableMovieList);
+        Section bookSection = Mockito.mock(Section.class);
+        Section movieSection = Mockito.mock(Section.class);
+        when(movieSection.getAvailableItemList()).thenReturn(availableMovieList);
         Input input = mock(Input.class);
-        when(input.acceptChoice()).thenReturn(4);
+        when(input.acceptChoice()).thenReturn(1);
+        Dispatcher dispatcher = new Dispatcher(view, bookSection, movieSection, input);
         User currentUser = Mockito.mock(User.class);
         when(currentUser.isAdmin()).thenReturn(true);
-        Dispatcher dispatcher = new Dispatcher(view, library, input);
 
-        dispatcher.dispatch(input.acceptChoice(), currentUser);
+        dispatcher.dispatch(4, currentUser);
 
-        Mockito.verify(view).printListOfMovies(library.getAvailableMovieList());
+        Mockito.verify(view).printListOfMovies(movieSection.getAvailableItemList());
     }
 
     @Test
     public void shouldCallPrintMovieCheckoutStatusWhenChoiceIs5() {
         View view = Mockito.mock(View.class);
-        Library library = Mockito.mock(Library.class);
+        Section movieSection = Mockito.mock(Section.class);
+        Section bookSection = Mockito.mock(Section.class);
         User currentUser = Mockito.mock(User.class);
         when(currentUser.isAdmin()).thenReturn(true);
-        when(library.movieCheckout("Krish", currentUser)).thenReturn(new Movie("Krish", "2011", "Rakesh Roshan", "4"));
+        when(movieSection.itemCheckout("Krish", currentUser)).thenReturn(new Movie("Krish", "2011", "Rakesh Roshan", "4"));
         Input input = mock(Input.class);
         when(input.acceptChoice()).thenReturn(5);
         when(input.acceptInput()).thenReturn("Krish");
-        Dispatcher dispatcher = new Dispatcher(view, library, input);
+        Dispatcher dispatcher = new Dispatcher(view, bookSection, movieSection, input);
 
         dispatcher.dispatch(input.acceptChoice(), currentUser);
 
-        Mockito.verify(view).printMovieCheckoutStatus(library.movieCheckout("Krish", currentUser));
+        Mockito.verify(view).printMovieCheckoutStatus((Movie) movieSection.itemCheckout("Krish", currentUser));
     }
 
     @Test
     public void shouldCallPrintMovieCheckinStatusWhenChoiceIs6() {
         View view = Mockito.mock(View.class);
-        Library library = Mockito.mock(Library.class);
+        Section movieSection = Mockito.mock(Section.class);
+        Section bookSection = Mockito.mock(Section.class);
         User currentUser = Mockito.mock(User.class);
         when(currentUser.isAdmin()).thenReturn(true);
-        when(library.movieCheckin("Krish", currentUser)).thenReturn(new Movie("Krish", "2011", "Rakesh Roshan", "4"));
+        when(movieSection.itemCheckin("Krish", currentUser)).thenReturn(new Movie("Krish", "2011", "Rakesh Roshan", "4"));
         Input input = mock(Input.class);
         when(input.acceptChoice()).thenReturn(6);
         when(input.acceptInput()).thenReturn("Krish");
-        Dispatcher dispatcher = new Dispatcher(view, library, input);
+        Dispatcher dispatcher = new Dispatcher(view, bookSection, movieSection, input);
 
         dispatcher.dispatch(input.acceptChoice(), currentUser);
 
-        Mockito.verify(view).printMovieCheckinStatus(library.movieCheckin("Krish", currentUser));
+        Mockito.verify(view).printMovieCheckinStatus((Movie) movieSection.itemCheckin("Krish", currentUser));
     }
 }

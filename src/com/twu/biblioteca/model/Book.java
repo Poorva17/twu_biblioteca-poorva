@@ -10,6 +10,7 @@ public class Book extends Item {
         this.yearPublished = yearPublished;
     }
 
+    @Override
     public String getDetails() {
         return String.format("%-20s %-20s %-20s\n", title, author, yearPublished);
     }
