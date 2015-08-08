@@ -11,7 +11,7 @@ public class UserTest {
     public void shouldPrintUserInformation() {
         com.twu.biblioteca.model.User user = new com.twu.biblioteca.model.User("Poorva", "poorvasgokhale@gmail.com", "9604590231", "poorva3", "poorva@3", "user");
 
-        assertEquals("user Poorva poorvasgokhale@gmail.com 9604590231\n", user.displayInformation());
+        assertEquals("\npoorva3              Poorva     poorvasgokhale@gmail.com       9604590231          \n\n", user.displayInformation());
     }
 
     @Test

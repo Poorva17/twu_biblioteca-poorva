@@ -6,7 +6,7 @@ public class Movie extends com.twu.biblioteca.model.Item {
     private String movieRating;
 
     public Movie(String title, String yearPublished, String director, String movieRating) {
-        this.title = title;
+        super(title);
         this.yearPublished = yearPublished;
         this.director = director;
         this.movieRating = movieRating;

@@ -5,7 +5,7 @@ public class Book extends Item {
     private String yearPublished;
 
     public Book(String title, String author, String yearPublished) {
-        this.title = title;
+        super(title);
         this.author = author;
         this.yearPublished = yearPublished;
     }
@@ -18,6 +18,7 @@ public class Book extends Item {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         Book book = (Book) o;
 
@@ -28,7 +29,8 @@ public class Book extends Item {
 
     @Override
     public int hashCode() {
-        int result = author.hashCode();
+        int result = super.hashCode();
+        result = 31 * result + author.hashCode();
         result = 31 * result + yearPublished.hashCode();
         return result;
     }

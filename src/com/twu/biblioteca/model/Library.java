@@ -5,41 +5,41 @@ import java.util.HashMap;
 
 
 public class Library {
-    private ArrayList<com.twu.biblioteca.model.Book> availableBookList;
+    private ArrayList<Book> availableBookList;
     private ArrayList<Movie> availableMovieList;
-    private HashMap<com.twu.biblioteca.model.Book, User> userBookList;
+    private HashMap<Book, User> userBookList;
     private HashMap<Movie, User> userMovieList;
 
-    public Library(ArrayList<com.twu.biblioteca.model.Book> availableBookList, ArrayList<Movie> availableMovieList,
-                   HashMap<com.twu.biblioteca.model.Book, User> userBookList, HashMap<Movie, User> userMovieList) {
+    public Library(ArrayList<Book> availableBookList, ArrayList<Movie> availableMovieList,
+                   HashMap<Book, User> userBookList, HashMap<Movie, User> userMovieList) {
         this.availableBookList = availableBookList;
         this.availableMovieList = availableMovieList;
         this.userBookList = userBookList;
         this.userMovieList = userMovieList;
     }
 
-    public com.twu.biblioteca.model.Book bookCheckout(String bookNameToCheckout, User currentUser) {
-        for (com.twu.biblioteca.model.Book book : availableBookList) {
+    public Book bookCheckout(String bookNameToCheckout, User currentUser) {
+        for (Book book : availableBookList) {
             if (book.hasTitle(bookNameToCheckout)) {
                 addBookToCheckoutList(book, currentUser);
                 return book;
             }
         }
-        com.twu.biblioteca.model.Book noBook = new com.twu.biblioteca.model.Book(" ", " ", " ");
+        Book noBook = new Book(" ", " ", " ");
         return noBook;
     }
 
-    private void addBookToCheckoutList(com.twu.biblioteca.model.Book book, User currentUser) {
+    private void addBookToCheckoutList(Book book, User currentUser) {
         availableBookList.remove(book);
         userBookList.put(book, currentUser);
     }
 
-    public ArrayList<com.twu.biblioteca.model.Book> getAvailableBooklist() {
+    public ArrayList<Book> getAvailableBooklist() {
         return availableBookList;
     }
 
-    public com.twu.biblioteca.model.Book bookCheckin(String bookNameToCheckin, User currentUser) {
-        for (com.twu.biblioteca.model.Book book : userBookList.keySet()) {
+    public Book bookCheckin(String bookNameToCheckin, User currentUser) {
+        for (Book book : userBookList.keySet()) {
             if (book.hasTitle(bookNameToCheckin)) {
                 if (userBookList.get(book).equals(currentUser)) {
                     addBookToAvailableList(book);
@@ -47,16 +47,16 @@ public class Library {
                 }
             }
         }
-        com.twu.biblioteca.model.Book noBook = new com.twu.biblioteca.model.Book(" ", " ", " ");
+        Book noBook = new Book(" ", " ", " ");
         return noBook;
     }
 
-    private void addBookToAvailableList(com.twu.biblioteca.model.Book book) {
+    private void addBookToAvailableList(Book book) {
         availableBookList.add(book);
         userBookList.remove(book);
     }
 
-    public HashMap<com.twu.biblioteca.model.Book, User> getBookCheckoutList() {
+    public HashMap<Book, User> getBookCheckoutList() {
         return userBookList;
     }
 
