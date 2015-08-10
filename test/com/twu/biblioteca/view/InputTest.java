@@ -1,4 +1,4 @@
-package com.twu.biblioteca.controller;
+package com.twu.biblioteca.view;
 
 import org.junit.After;
 import org.junit.Before;
