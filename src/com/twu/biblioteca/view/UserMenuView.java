@@ -23,8 +23,8 @@ public class UserMenuView implements IView {
             System.out.print("4.List of Movies\n\t5.Checkout Movie\n\t6.Return Movie\n");
             System.out.print("\t7.Logout\n\t");
             System.out.print("Enter your choice:\n\t\t");
-            String  choice = input.acceptChoice();
-            if (Integer.parseInt(choice) == 7)
+            String choice = input.acceptChoice();
+            if (choice.equalsIgnoreCase("7"))
                 break;
             dispatcher.dispatch(choice, currentUser);
         }
